@@ -1,23 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <div class="container">
+        <div class="jumbotron shadow-lg p-3 mb-3 bg-white rounded justify-content-center">
+            <div class="flex-column text-center justify-content-center">
+                <h2>KALKULATOR DELEGACJI SŁUŻBOWEJ</h2>
+                <h3>rozliczPWS.pl</h3>
+                <h2>Polecenie Wyjazdu Służbowego</h2>
+                <h2>Rachunek Kosztów Podróży</h2>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
+                <a class="btn btn-primary" href="{{ url('krajowa') }}" role="button">Podróż krajowa</a>
+                <a class="btn btn-primary" href="{{ url('zagraniczna') }}" role="button">Podróż zagraniczna</a>
             </div>
         </div>
     </div>
-</div>
 @endsection
