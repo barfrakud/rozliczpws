@@ -469,8 +469,19 @@ CSS odpowiedzialny za logowanie
     border-radius: .25rem;
 }
 
+.przycisk4 {
+    color: white;
+    background-color: #955F62;
+}
+
 .przycisk4:hover {
     background: #A18D75;
+}
+
+
+.btn-block {
+    display: block;
+    width: 100%;
 }
 
 /* Zmiana domyślnej szerokości modułu modal w bootstrap */

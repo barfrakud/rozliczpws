@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/krajowa', [App\Http\Controllers\HomeController::class, 'krajowa'])->name('krajowa');
+Route::post('public/krajowa/oblicz-podroze', [App\Http\Controllers\HomeController::class, 'krajowaObliczPodroze'])->name('oblicz-podroze');
+Route::post('public/krajowa/oblicz-rachunek', [App\Http\Controllers\HomeController::class, 'krajowaObliczRachunek'])->name('oblicz-rachunek');
 
 Route::get('/zagraniczna', [App\Http\Controllers\HomeController::class, 'zagraniczna'])->name('zagraniczna');
 
