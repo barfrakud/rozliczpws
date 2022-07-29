@@ -160,7 +160,7 @@ $(function () {
         var iloscObiadowZ = parseInt($("#obiadZ").val());
         var iloscKolacjiZ = parseInt($("#kolacjaZ").val());
 
-        var dietaZagrStawka = parseInt($("#labelKwotaDieta").val().replace(",", ".")); //stawka diety zagranicznej
+        var dietaZagrStawka = parseFloat($("#labelKwotaDieta").val().replace(",", ".")); //stawka diety zagranicznej
 
         // Dla ułatwienia
         var D = czasPodrozyDni;

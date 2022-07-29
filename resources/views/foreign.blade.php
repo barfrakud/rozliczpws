@@ -395,7 +395,7 @@
                 <div class="col-sm-3">
                     <h5>Rożnica</h5>
                     <div id="idRoznica">
-                        <label for="roznica">Wpłacić do kasy:</label>
+                        <label for="roznica" id="diffDisplay">Wpłacić do kasy:</label>
                         <p id="roznica"></p>
                     </div>
                 </div>
