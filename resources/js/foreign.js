@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function () {
 
     console.log("Zaczynamy");
 
@@ -14,45 +14,70 @@ $(document).ready(function () {
     ///////////////////////////////////////////////////
 
     //////////////////
-    // 1/3. ZMIENNE  
+    // 1/3. ZMIENNE
     //////////////////
 
     let currency;
-    let perDiemRate;
+    let perDiemRate = 0;
     let perNightRate;
     let tripTotalTime;
     let tripAllowance = 0; //dieta
-    let oldTripAllowance;
+    let oldTripAllowance = 0;
     let deduction = 0; //odliczenia za posiłki
     let deductionBreakfast = 0;
     let deductionLunch = 0;
     let deductionDinner = 0;
     let tripAllowanceMinusDeduction = 0; //dieta minus odliczenia
-    let tripType = 1; // typ podróży zagranicznej
+    let tripType = "1"; // typ podróży zagranicznej
 
     //////////////////
     // 2/3. FUNCKCJE
     //////////////////
 
     //Funkcja ustawiające numer wersji oprogramowania na każdej stronie i podstronie.
-    document.getElementById("idFooterText").innerHTML = "rozliczPWS.pl v1.14.0 &#169 barfrakud";
+    document.getElementById("idFooterText").innerHTML = "rozliczPWS.pl v2.0.0 &#169 barfrakud";
 
     // Wybór miejsca podróży z przypisaniem poszczególnych wartości
     function selectDestination() {
+
+        // Currency = Waluta
         currency = $(this).find(":selected").data("value").waluta;
         $("#labelWaluta").val(currency);
 
-        perDiemRate = $(this).find(":selected").data("value").dieta;
-        $("#labelKwotaDieta").val(perDiemRate);
-        oldTripAllowance = perDiemRate;
+        console.log("Zmiana wyboru");
+        console.log(`tripType: ${tripType}`);
+        console.log(`dieta: ${$(this).find(":selected").data("value").dieta}`);
 
+
+
+        // Trip Allowance = Dieta
+        // perDiemRate = $(this).find(":selected").data("value").dieta;
+        oldTripAllowance = $(this).find(":selected").data("value").dieta;
+        console.log(oldTripAllowance);
+
+        if (tripType == 1) {
+            let newTripAllowance = oldTripAllowance + ',00';
+            $("#labelKwotaDieta").val(newTripAllowance);
+        } else if (tripType == 2) {
+            console.log(tripType);
+            let newTripAllowance = oldTripAllowance / 2;
+            $("#labelKwotaDieta").val(newTripAllowance.toFixed(2).replace(".", ","));
+        } else {
+            let newTripAllowance = oldTripAllowance / 4;
+            $("#labelKwotaDieta").val(newTripAllowance.toFixed(2).replace(".", ","));
+        }
+
+
+
+        // Night Rate = Kwota za nocleg
         perNightRate = $(this).find(":selected").data("value").limit;
-        $("#labelLimitNocleg").val(perNightRate);
+        $("#labelLimitNocleg").val(perNightRate + ',00');
+
         // console.log("Zmiana wyboru");
         // console.log(`Waluta: ${currency}`);
 
         // Ustawienie domyślnego typu podróży
-        $("#typPodrozy1").prop("checked", true);
+        // $("#typPodrozy1").prop("checked", true);
     }
 
     // Typ podróży
@@ -62,30 +87,33 @@ $(document).ready(function () {
         tripType = this.value;
         // console.log(tripType);
 
-        if (tripType === "1") {
+        if (tripType == 1) {
             // console.log("Ustawiam nową dietę");
             // let oldTripAllowance =  $("#labelKwotaDieta").val();
-            let newTripAllowance = oldTripAllowance;
+            let newTripAllowance = oldTripAllowance + ",00";
             $("#labelKwotaDieta").val(newTripAllowance);
             // console.log("Ustawiam nową dietę w fukcji");
         }
 
-        if (tripType === "2") {
+        if (tripType == 2) {
             // console.log("Ustawiam nową dietę");
             // let oldTripAllowance =  $("#labelKwotaDieta").val();
             let newTripAllowance = oldTripAllowance / 2;
-            $("#labelKwotaDieta").val(newTripAllowance);
+            $("#labelKwotaDieta").val(newTripAllowance.toFixed(2).replace(".", ","));
+
             // console.log("Ustawiam nową dietę w fukcji");
         }
 
-        if (tripType === "3") {
+        if (tripType == 3) {
             // console.log("Ustawiam nową dietę");
             // let oldTripAllowance =  $("#labelKwotaDieta").val();
             let newTripAllowance = oldTripAllowance / 4;
-            $("#labelKwotaDieta").val(newTripAllowance);
+            $("#labelKwotaDieta").val(newTripAllowance.toFixed(2).replace(".", ","));
             // console.log("Ustawiam nową dietę w fukcji");
         }
+        console.log(tripType);
 
+        return tripType;
     }
 
 
@@ -107,15 +135,7 @@ $(document).ready(function () {
 
         var czasPodrozy = moment.duration(dataStop.diff(dataStart));
 
-        // stara wersja
-        // var czasPodrozyDni = czasPodrozy.get('d');
-
-        // nowa wersja
         var czasPodrozyDni = dataStop.diff(dataStart, 'days');
-
-        // kod testowy
-        // let tripTimeDays = dataStop.diff(dataStart,'days');
-        // console.log(`Czas trwania w dniach: ${tripTimeDays}`);
 
         var czasPodrozyGodziny = czasPodrozy.get('h');
         var czasPodrozyMinuty = czasPodrozy.get('m');
@@ -140,7 +160,7 @@ $(document).ready(function () {
         var iloscObiadowZ = parseInt($("#obiadZ").val());
         var iloscKolacjiZ = parseInt($("#kolacjaZ").val());
 
-        var dietaZagrStawka = parseInt($("#labelKwotaDieta").val()); //stawka diety zagranicznej
+        var dietaZagrStawka = parseInt($("#labelKwotaDieta").val().replace(",", ".")); //stawka diety zagranicznej
 
         // Dla ułatwienia
         var D = czasPodrozyDni;
@@ -149,13 +169,17 @@ $(document).ready(function () {
         var A = 0;
         var B = 0;
 
+
+
         if (D > 0) {
             A = D * dietaZagrStawka;
         } else {
             A = 0;
         }
 
-        if ((G === 8 && M === 0) || (G < 8)) {
+        if (G === 0 && M === 0) {
+            B = 0;
+        } else if ((G === 8 && M === 0) || (G < 8)) {
             B = dietaZagrStawka / 3;
         } else {
             if ((G === 12 && M === 0) || (G < 12)) {
@@ -165,7 +189,7 @@ $(document).ready(function () {
             }
         }
 
-        var dietaZagrNowa = $("#labelKwotaDieta").val();
+        var dietaZagrNowa = $("#labelKwotaDieta").val().replace(",", ".");
 
         // Odliczenia
         deductionBreakfast = iloscSniadanZ * 0.15 * dietaZagrNowa;
@@ -190,7 +214,7 @@ $(document).ready(function () {
         var button2 = document.getElementById("zakwaterowanieButton2Z").checked;
 
         if (button2 === true) {
-            kosztZakwaterowaniaHotelZ = $("#kosztHotelZ").val();
+            kosztZakwaterowaniaHotelZ = $("#kosztHotelZ").val().replace(",", ".");
             return (Math.round(kosztZakwaterowaniaHotelZ * 100) / 100).toFixed(2);
         } else {
             kosztZakwaterowaniaHotelZ = 0;
@@ -203,7 +227,7 @@ $(document).ready(function () {
 
         //var limitZagrStawka = parseFloat(limitZ); //limit noclegowy zagraniczny
         //Wartość stawki pobiera się z okna, z którego się wyświetla
-        var limitZagrStawka = $("#labelLimitNocleg").val();
+        var limitZagrStawka = $("#labelLimitNocleg").val().replace(",", ".");
 
         var czasPodrozyDni = tripTotalTime[0];
         var czasPodrozyGodziny = tripTotalTime[1];
@@ -233,7 +257,7 @@ $(document).ready(function () {
     function obliczRyczaltZaDojazdyZ() {
         //var ryczaltStawka = 0.1 * parseFloat(dietaZ);
         //var limitZagrStawka = $("#labelKwotaDieta").val();
-        var ryczaltStawka = 0.1 * $("#labelKwotaDieta").val();
+        var ryczaltStawka = 0.1 * $("#labelKwotaDieta").val().replace(",", ".");;
 
         var komunikacjaMiejska = $("#komunikacjaMiejskaZ").is(':checked');
         var czasPodrozyDni = tripTotalTime[0];
@@ -264,7 +288,7 @@ $(document).ready(function () {
 
     // Obliczenie należności za dojazd z/do lotniska w miejscowości docelowej
     function obliczDoZLotniska() {
-        var wynik = $("#labelKwotaDieta").val();
+        var wynik = $("#labelKwotaDieta").val().replace(",", ".");;
         var dojazdLotnisko = $("#dojazdLotnisko").is(':checked');
 
         if (dojazdLotnisko === true) {
@@ -285,19 +309,21 @@ $(document).ready(function () {
 
     // Wyświetlenie kosztów
     function showCosts() {
-        $("#labelDietaZ").html("<b>" + "<em>" + dietaZagranicznaWynik + " " + currency + "</em>" + "</b>");
-        $("#labelZOdliczenia").html("<b>" + "<em>" + deduction + " " + currency + "</em>" + "</b>");
-        $("#labelDietaZOdliczenia").html("<b>" + "<em>" + tripAllowanceMinusDeduction + " " + currency + "</em>" + "</b>");
-        $("#labelKosztZakwatarewaniaRyczaltZ").html("<b>" + "<em>" + obliczKosztZakwaterowaniaRyczaltZ() + " " + currency + "</em>" + "</b>");
+        $("#labelDietaZ").html("<b>" + "<em>" + dietaZagranicznaWynik.replace(".", ",") + " " + currency + "</em>" + "</b>");
+        $("#labelZOdliczenia").html("<b>" + "<em>" + deduction.replace(".", ",") + " " + currency + "</em>" + "</b>");
+        $("#labelDietaZOdliczenia").html("<b>" + "<em>" + tripAllowanceMinusDeduction.replace(".", ",") + " " + currency + "</em>" + "</b>");
+        $("#labelKosztZakwatarewaniaRyczaltZ").html("<b>" + "<em>" + obliczKosztZakwaterowaniaRyczaltZ().replace(".", ",") + " " + currency + "</em>" + "</b>");
         sumaInne = parseFloat(obliczRyczaltZaDojazdyZ()) + parseFloat(obliczDoZLotniska()) + parseFloat(obliczInneWydatkiZ());
-        $("#labelInneWydatkiPodsumZ").html("<b>" + "<em>" + sumaInne.toFixed(2) + " " + currency + "</em>" + "</b>");
+        $("#labelInneWydatkiPodsumZ").html("<b>" + "<em>" + sumaInne.toFixed(2).replace(".", ",") + " " + currency + "</em>" + "</b>");
     }
 
     // Rozliczanie pobranej zaliczki
     function rozliczZaliczke() {
-        var zaliczka = $("#zaliczka").val();
+        var zaliczka = $("#zaliczka").val().replace(",", ".");
         wydatki = parseFloat(kosztZakwaterowaniaHotelZ) + parseFloat(kosztZakwatarewaniaRyczaltZ) + parseFloat(obliczRyczaltZaDojazdyZ()) + parseFloat(obliczDoZLotniska()) + parseFloat(obliczInneWydatkiZ()) + parseFloat(tripAllowanceMinusDeduction);
         roznica = zaliczka - wydatki;
+
+
     }
 
 
@@ -314,10 +340,12 @@ $(document).ready(function () {
     });
 
     // Wybór miejsca podróży
-    $("#krajPodrozy").change(selectDestination);
+    $("#krajPodrozy").on('change', selectDestination);
 
     // Wybór typu podróży
-    $(".trip-type").change(typeOfTrip);
+    // $(".trip-type").change(typeOfTrip);
+    $(".trip-type").on("change", typeOfTrip);
+
 
     // Obliczenie czasu podróży
     $('#buttonObliczZ').click(getTripTime);
@@ -344,8 +372,17 @@ $(document).ready(function () {
     // Obliczenie rachunku i wyświetlenie wyniku
     $('#buttonObliczRachunekIdZ').click(function () {
         rozliczZaliczke();
-        $("#wydatkowano").html("<b>" + "<em>" + wydatki.toFixed(2) + " " + currency + "</em>" + "</b>");
-        $("#roznica").html("<b>" + "<em>" + roznica.toFixed(2) + " " + currency + "</em>" + "</b>");
+        $("#wydatkowano").html("<b>" + "<em>" + wydatki.toFixed(2).replace(".", ",") + " " + currency + "</em>" + "</b>");
+
+        if (roznica < 0) {
+            $("#diffDisplay").text("Wypłacić żołnierzowi:");
+            roznica = -1 * roznica;
+            $("#roznica").html("<b>" + "<em>" + roznica.toFixed(2).replace(".", ",") + " " + currency + "</em>" + "</b>");
+        } else {
+            $("#diffDisplay").text("Zwrócić do kasy:");
+            $("#roznica").html("<b>" + "<em>" + roznica.toFixed(2).replace(".", ",") + " " + currency + "</em>" + "</b>");
+        }
+
     });
 
 

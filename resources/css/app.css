@@ -474,6 +474,8 @@ CSS odpowiedzialny za logowanie
     background-color: #955F62;
 }
 
+
+
 .przycisk4:hover {
     background: #A18D75;
 }
@@ -523,4 +525,9 @@ em {
 
 .active {
     color: white;
+}
+
+.button-foreign {
+    color: white;
+    background-color: #955F62;
 }
