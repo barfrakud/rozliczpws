@@ -216,14 +216,9 @@
                     </div>
                 </div>
 
-                <div class="row">
+                {{-- <div class="row">
                     <div class="mt-5 col-sm-3">
                         <h4>Komunikacja miejska</h4>
-                        <!-- <div class="form-check">
-                                                <input type="checkbox" id="komunikacjaMiejska" class="form-check-input" name="komunikacjaMiejska">
-                                                <label class="form-check-label" for="komunikacjaMiejska">Korzystałem z komunikacji miejskiej</label>
-                                              </div> -->
-
                         <div class="form-check">
                             <input class="form-check-input" type="radio" id="komunikacjaMiejskaRadio1"
                                 name="komunikacjaMiejska" checked>
@@ -246,7 +241,7 @@
                             <p class="paraForError" id="komunikacjaMiejskaIloscDniError"></p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
 
                 <div class="row mt-5">
@@ -286,8 +281,35 @@
                     </div>
                 </div>
 
-                <div id="zakwaterowanie">
+                <div id="zakwaterowanie" class="mt-5">
                     <div class="row">
+
+                        <div class="col-sm-3">
+                            <h4>Komunikacja miejska</h4>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="komunikacjaMiejskaRadio1"
+                                    name="komunikacjaMiejska" checked>
+                                <label class="form-check-label" for="komunikacjaMiejskaRadio1"> Nie korzystałem</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="komunikacjaMiejskaRadio2"
+                                    name="komunikacjaMiejska">
+                                <label class="form-check-label" for="komunikacjaMiejskaRadio2"> Korzystałem</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="komunikacjaMiejskaRadio3"
+                                    name="komunikacjaMiejska">
+                                <label class="form-check-label" for="komunikacjaMiejskaRadio3"> Korzystałem przez
+                                    określoną
+                                    ilość dni:</label>
+                            </div>
+                            <div>
+                                <input id="komunikacjaMiejskaIloscDni" type="text" value=""
+                                    class="form-control" name="komunikacjaMiejska" disabled>
+                                <p class="paraForError" id="komunikacjaMiejskaIloscDniError"></p>
+                            </div>
+                        </div>
+
                         <div class="col-sm-3 mb-5">
                             <h4>Zakwaterowanie</h4>
                             <p>Korzystałem z:</p>
