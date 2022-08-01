@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +31,7 @@ Route::get('/zagraniczna', [App\Http\Controllers\HomeController::class, 'zagrani
 Route::get('/pomoc', [App\Http\Controllers\HomeController::class, 'pomoc'])->name('pomoc');
 
 Route::get('/kontakt', [App\Http\Controllers\HomeController::class, 'kontakt'])->name('kontakt');
+// Route::get('/contact-us', [ContactController::class, 'index']);
+Route::post('/kontakt-uj', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('/podstawa', [App\Http\Controllers\HomeController::class, 'podstawa'])->name('podstawa');
