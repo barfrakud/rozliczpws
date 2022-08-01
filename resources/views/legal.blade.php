@@ -22,11 +22,11 @@
                     z tytułu podróży służbowej (Dz.U. 2013 poz. 167). <br><br>
                 </p>
                 <p>
-                    W przypadku wykrytych błędów proszę o kontakt poprzez formularz kontaktowy lub wiadomość przez
+                    W przypadku wykrytych błędów proszę o kontakt poprzez formularz kontaktowy, GitHub lub wiadomość na
                     Facebook.<br><br>
                 </p>
                 <p>
-                    Jeśli ktoś chciałby wspomóć projekt to zapraszam na github.
+                    Jeśli chciałbyś wspomóć projekt to zapraszam na github do współpracy.
                 </p>
             </div>
 
