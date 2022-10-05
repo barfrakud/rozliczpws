@@ -30,12 +30,12 @@
 
                             <form method="post" action="kontakt-uj">
                                 {{ csrf_field() }}
+                                <x-honey />
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label> Imię </label>
-                                            <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                                placeholder="Imię" name="name">
+                                            <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Imię" name="name">
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -46,8 +46,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label> Email </label>
-                                            <input type="text" class="form-control @error('email') is-invalid @enderror"
-                                                placeholder="Email" name="email">
+                                            <input type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email">
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

@@ -32,6 +32,6 @@ Route::get('/pomoc', [App\Http\Controllers\HomeController::class, 'pomoc'])->nam
 
 Route::get('/kontakt', [App\Http\Controllers\HomeController::class, 'kontakt'])->name('kontakt');
 // Route::get('/contact-us', [ContactController::class, 'index']);
-Route::post('/kontakt-uj', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/kontakt-uj', [ContactController::class, 'store'])->middleware(['honey'])->name('contact.store');
 
 Route::get('/podstawa', [App\Http\Controllers\HomeController::class, 'podstawa'])->name('podstawa');
