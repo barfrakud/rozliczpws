@@ -17,16 +17,27 @@
                 </p>
                 <p>
                     Algorytm obliczający rachunek kosztów podróży został opracowany na podstawie przepisów zawartych
-                    w rozporządzeniu Ministra Pracy i Polityki Społecznej z dnia 29 stycznia 2013 r. w sprawie należności
-                    przysługujących pracownikowi zatrudnionemu w państwowej lub samorządowej jednostce sfery budżetowej
-                    z tytułu podróży służbowej (Dz.U. 2013 poz. 167). <br><br>
+                    w:
                 </p>
+                <ul>
+                    <li>
+                        Rozporządzenie Ministra Pracy i Polityki Społecznej z dnia 29 stycznia 2013 r. w sprawie należności
+                        przysługujących pracownikowi zatrudnionemu w państwowej lub samorządowej jednostce sfery budżetowej
+                        z tytułu podróży służbowej (Dz.U. 2013 poz. 167).
+                    </li>
+                    <li>
+                        Rozporządzenie Ministra Rodziny i Polityki Społecznej z dnia 30 czerwca 2022 r. zmieniające rozporządzenie
+                        w sprawie należności przysługujących pracownikowi zatrudnionemu w państwowej
+                        lub samorządowej jednostce sfery budżetowej z tytułu podróży służbowej (Dz.U. 2022 poz. 1481).
+                    </li>
+                </ul>
+
                 <p>
                     W przypadku wykrytych błędów proszę o kontakt poprzez formularz kontaktowy, GitHub lub wiadomość na
                     Facebook.<br><br>
                 </p>
                 <p>
-                    Jeśli chciałbyś wspomóć projekt to zapraszam na github do współpracy.
+                    Jeśli chciałbyś wspomóc projekt to zapraszam na github do współpracy.
                 </p>
             </div>
 

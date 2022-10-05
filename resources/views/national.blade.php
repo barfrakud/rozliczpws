@@ -15,43 +15,6 @@
                     </div>
                     <div class="col-sm-3"></div>
                     <div class="col-sm-3"></div>
-                    {{-- <div class="col-sm-3">
-                        <button type="button" class="btn btn-block d-print-none" id="buttonPodrozKrajowaPomoc"
-                            data-toggle="modal" data-target=".bd-example-modal-xl">Pomoc</button>
-                    </div> --}}
-
-                    <!-- Bootstrap -> Modal -- pomoc jako okno wyskakujące -->
-                    {{-- <div class="modal fade bd-example-modal-xl d-print-none" id="exampleModal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-xl" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header d-block">
-                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <div>
-                                        <h5><strong>Instrukcja wypełnienia formularza dla podróży krajowej</strong></h5>
-                                        1. Uzupełnij pola formalurza wpisując dane podróży. <br>
-                                        2. Dodaj podróż naciskająć "Dodaj". <br>
-                                        3. Powtórzy czynności 1-2 dla kolejnych podróży w miarę potrzeb. <br>
-                                        4. Naciśnij "Oblicz Podróże". <br>
-                                        5. Uzupełnij pozostałe dane: Zakwaterowanie, Wyżywienie, Inne wydatki. <br>
-                                        6. Naciśnij "Oblicz Rachunek". <br> <br>
-                                    </div>
-                                    <h5>Prawidłowo wypełniony formularz wygląda następująco:</h5>
-                                </div>
-                                <div class="modal-body">
-                                    <img src="img/pomoc-podr_krajowa.png" alt="Instrukcja Podróż Krajowa"
-                                        class="img-fluid" />
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-block przycisk4" data-dismiss="modal">Zamknij
-                                        Pomoc</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
 
                 </div>
 
@@ -168,13 +131,11 @@
                     <div class="col-sm-3">
                         <div id="przyciskDodaj">
                             <label>&nbsp</label><br />
-                            <button type="button" class="btn btn-block przycisk4 d-print-none"
-                                id="buttonDodaj">Dodaj</button>
+                            <button type="button" class="btn btn-block przycisk4 d-print-none" id="buttonDodaj">Dodaj</button>
                         </div>
                         <div id="przyciskPodrozPowrotna">
                             <label>&nbsp</label><br />
-                            <button type="button" class="btn btn-block przycisk4 d-print-none"
-                                id="buttonPodrozPowrotna">Podróż powrotna</button>
+                            <button type="button" class="btn btn-block przycisk4 d-print-none" id="buttonPodrozPowrotna">Podróż powrotna</button>
                         </div>
                     </div>
                 </div>
@@ -210,38 +171,10 @@
                     <div class="col-sm-3"></div>
                     <div class="col-sm-3">
                         <div id="buttonUsunId">
-                            <button type="button" class="btn btn-block przycisk4 d-print-none"
-                                id="buttonUsun">Usuń</button>
+                            <button type="button" class="btn btn-block przycisk4 d-print-none" id="buttonUsun">Usuń</button>
                         </div>
                     </div>
                 </div>
-
-                {{-- <div class="row">
-                    <div class="mt-5 col-sm-3">
-                        <h4>Komunikacja miejska</h4>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" id="komunikacjaMiejskaRadio1"
-                                name="komunikacjaMiejska" checked>
-                            <label class="form-check-label" for="komunikacjaMiejskaRadio1"> Nie korzystałem</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" id="komunikacjaMiejskaRadio2"
-                                name="komunikacjaMiejska">
-                            <label class="form-check-label" for="komunikacjaMiejskaRadio2"> Korzystałem</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" id="komunikacjaMiejskaRadio3"
-                                name="komunikacjaMiejska">
-                            <label class="form-check-label" for="komunikacjaMiejskaRadio3"> Korzystałem przez określoną
-                                ilość dni:</label>
-                        </div>
-                        <div>
-                            <input id="komunikacjaMiejskaIloscDni" type="text" value="" class="form-control"
-                                name="komunikacjaMiejska" disabled>
-                            <p class="paraForError" id="komunikacjaMiejskaIloscDniError"></p>
-                        </div>
-                    </div>
-                </div> --}}
 
 
                 <div class="row mt-5">
@@ -287,25 +220,21 @@
                         <div class="col-sm-3">
                             <h4>Komunikacja miejska</h4>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="komunikacjaMiejskaRadio1"
-                                    name="komunikacjaMiejska" checked>
+                                <input class="form-check-input" type="radio" id="komunikacjaMiejskaRadio1" name="komunikacjaMiejska" checked>
                                 <label class="form-check-label" for="komunikacjaMiejskaRadio1"> Nie korzystałem</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="komunikacjaMiejskaRadio2"
-                                    name="komunikacjaMiejska">
+                                <input class="form-check-input" type="radio" id="komunikacjaMiejskaRadio2" name="komunikacjaMiejska">
                                 <label class="form-check-label" for="komunikacjaMiejskaRadio2"> Korzystałem</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="komunikacjaMiejskaRadio3"
-                                    name="komunikacjaMiejska">
+                                <input class="form-check-input" type="radio" id="komunikacjaMiejskaRadio3" name="komunikacjaMiejska">
                                 <label class="form-check-label" for="komunikacjaMiejskaRadio3"> Korzystałem przez
                                     określoną
                                     ilość dni:</label>
                             </div>
                             <div>
-                                <input id="komunikacjaMiejskaIloscDni" type="text" value=""
-                                    class="form-control" name="komunikacjaMiejska" disabled>
+                                <input id="komunikacjaMiejskaIloscDni" type="text" value="" class="form-control" name="komunikacjaMiejska" disabled>
                                 <p class="paraForError" id="komunikacjaMiejskaIloscDniError"></p>
                             </div>
                         </div>
@@ -314,20 +243,17 @@
                             <h4>Zakwaterowanie</h4>
                             <p>Korzystałem z:</p>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="zakwaterowanieButton1"
-                                    name="zakwaterowanieButton" checked>
+                                <input class="form-check-input" type="radio" id="zakwaterowanieButton1" name="zakwaterowanieButton" checked>
                                 <label class="form-check-label" for="zakwaterowanieButton1"> ryczałtu</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="zakwaterowanieButton2"
-                                    name="zakwaterowanieButton">
+                                <input class="form-check-input" type="radio" id="zakwaterowanieButton2" name="zakwaterowanieButton">
                                 <label class="form-check-label" for="zakwaterowanieButton2"> zakwaterowania w
                                     hotelu</label>
                             </div>
                             <div>
                                 <label for="kosztHotel">Koszt zakwaterowania:</label>
-                                <input id="kosztHotel" type="text" value="0" class="form-control"
-                                    name="kosztHotel" disabled>
+                                <input id="kosztHotel" type="text" value="0" class="form-control" name="kosztHotel" disabled>
                                 <p class="paraForError" id="kosztHotelError"></p>
                             </div>
                         </div>
@@ -337,20 +263,17 @@
                             <p>Zapewniono bezpłatnie posiłki w ilościach:</p>
                             <div id="idSniadanie">
                                 <label for="sniadanie">Śniadanie:</label>
-                                <input id="sniadanie" type="text" value="0" class="form-control"
-                                    name="sniadanie">
+                                <input id="sniadanie" type="text" value="0" class="form-control" name="sniadanie">
                                 <p class="paraForError" id="sniadanieError"></p>
                             </div>
                             <div id="idObiad">
                                 <label for="obiad">Obiad:</label>
-                                <input id="obiad" type="text" value="0" class="form-control"
-                                    name="obiad">
+                                <input id="obiad" type="text" value="0" class="form-control" name="obiad">
                                 <p class="paraForError" id="obiadError"></p>
                             </div>
                             <div id="idKolacja">
                                 <label for="kolacja">Kolacja:</label>
-                                <input id="kolacja" type="text" value="0" class="form-control"
-                                    name="kolacja">
+                                <input id="kolacja" type="text" value="0" class="form-control" name="kolacja">
                                 <p class="paraForError" id="kolacjaError"></p>
                             </div>
                         </div>
@@ -361,8 +284,7 @@
                             <p>Poniesione wydatki zgodnie z rachunkami:</p>
                             <div id="idWydatki">
                                 <label for="wydatki">Wydatki:</label>
-                                <input id="wydatki" type="text" value="0" class="form-control"
-                                    name="wydatki">
+                                <input id="wydatki" type="text" value="0" class="form-control" name="wydatki">
                                 <p class="paraForError" id="wydatkiError"></p>
                             </div>
 
@@ -408,8 +330,7 @@
                     <div class="col-sm-3"></div>
                     <div class="col-sm-3">
                         <div id="buttonObliczPodsumowanie">
-                            <button type="button" id="buttonObliczPodsumowanie"
-                                class="btn btn-block przycisk4 d-print-none">Oblicz Rachunek</button>
+                            <button type="button" id="buttonObliczPodsumowanie" class="btn btn-block przycisk4 d-print-none">Oblicz Rachunek</button>
                         </div>
                     </div>
                 </div>

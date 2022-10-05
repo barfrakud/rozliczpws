@@ -13,9 +13,10 @@ class NationalTripClass
 
     public function __construct()
     {
-        $this->dietaKrajowaStawka = 30;
-        $this->komunikajcaMiejskaRyczaltStawka = 6;
-        $this->noclegRyczaltStawka = 45;
+        // Pobranie wartości z pliku konfiguracyjnego
+        $this->dietaKrajowaStawka = config('rozliczpws.dietaKrajowaStawka');
+        $this->komunikajcaMiejskaRyczaltStawka = config('rozliczpws.komunikajcaMiejskaRyczaltStawka');
+        $this->noclegRyczaltStawka = config('rozliczpws.noclegRyczaltStawka');
     }
 
     // Obliczenie czasu podróży na potrzeby wyświetlania
@@ -73,7 +74,7 @@ class NationalTripClass
         return $ryczaltDojazdy;
     }
 
-    // Funkcja - Obliczenie Razem przejazdy i dojazdy
+    // Obliczenie Razem przejazdy i dojazdy
     public function obliczRazemDojazdyPrzejazdy($start, $stop, $kosztPodr, $komunikacjaMiejskaRadio2, $komunikacjaMiejskaRadio3, $komunikacjaMiejskaIloscDni)
     {
         if ($komunikacjaMiejskaRadio2 === "true") {
@@ -87,7 +88,7 @@ class NationalTripClass
         return $razemDojazdyPrzejazdy;
     }
 
-    // Funkcja - Obliczenie Diety
+    // Obliczenie Diety
     public function obliczDiety($sniadanie, $obiad, $kolacja, $start, $stop)
     {
 
@@ -126,13 +127,13 @@ class NationalTripClass
         return $wynik;
     }
 
-    // Funkcja - Noclegi wg rachunków
+    // Noclegi wg rachunków
     public function obliczNoclegiWgRachunkow($kosztNoclegu)
     {
         return $kosztNoclegu;
     }
 
-    // Funkcja - Noclegi ryczałty
+    // Noclegi ryczałty
     public function obliczNoclegiRyczlt($start, $stop)
     {
         // $this->$noclegRyczaltStawka;
@@ -162,13 +163,13 @@ class NationalTripClass
         return $nightShifts * $this->noclegRyczaltStawka;
     }
 
-    // Funkcja - Inne wydatki wg załączników
+    // Inne wydatki wg załączników
     function obliczInne($inneKoszt)
     {
         return $inneKoszt;
     }
 
-    // Funkcja - Obliczanie Sumy ogółem
+    // Obliczanie Sumy ogółem
     function obiczOgolem($razemPrzejazdy, $diety, $noclegiRachunki, $noclegiRyczalty, $inneWydatki)
     {
         $obliczOgolemWynik = $razemPrzejazdy + $diety + $noclegiRachunki + $noclegiRyczalty + $inneWydatki;

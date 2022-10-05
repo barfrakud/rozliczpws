@@ -33,7 +33,8 @@ class ContactController extends Controller
             ),
             function ($message) use ($request) {
                 $message->from($request->email);
-                $message->to('bkgazda@gmail.com');
+                $destinationEmail = env('MAIL_DESTINATION');
+                $message->to($destinationEmail);
             }
         );
 

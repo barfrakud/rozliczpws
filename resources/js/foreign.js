@@ -2,20 +2,7 @@ $(function () {
 
     console.log("Zaczynamy");
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //PODRÓŻ ZAGRANICZNA
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    // Nowy układ aplikacji - szablon:
-    // 1. Zmienne
-    // 2. Funkcje
-    // 3. Kontroler (obsługa zdarzeń i zwrot wyniku)
-
-    ///////////////////////////////////////////////////
-
-    //////////////////
-    // 1/3. ZMIENNE
-    //////////////////
 
     let currency;
     let perDiemRate = 0;
@@ -30,12 +17,10 @@ $(function () {
     let tripAllowanceMinusDeduction = 0; //dieta minus odliczenia
     let tripType = "1"; // typ podróży zagranicznej
 
-    //////////////////
     // 2/3. FUNCKCJE
-    //////////////////
 
     //Funkcja ustawiające numer wersji oprogramowania na każdej stronie i podstronie.
-    document.getElementById("idFooterText").innerHTML = "rozliczPWS.pl v2.0.0 &#169 barfrakud";
+    document.getElementById("idFooterText").innerHTML = "rozliczPWS.pl v2.1.0 &#169 barfrakud";
 
     // Wybór miejsca podróży z przypisaniem poszczególnych wartości
     function selectDestination() {
@@ -51,7 +36,6 @@ $(function () {
 
 
         // Trip Allowance = Dieta
-        // perDiemRate = $(this).find(":selected").data("value").dieta;
         oldTripAllowance = $(this).find(":selected").data("value").dieta;
         console.log(oldTripAllowance);
 
@@ -73,43 +57,26 @@ $(function () {
         perNightRate = $(this).find(":selected").data("value").limit;
         $("#labelLimitNocleg").val(perNightRate + ',00');
 
-        // console.log("Zmiana wyboru");
-        // console.log(`Waluta: ${currency}`);
-
-        // Ustawienie domyślnego typu podróży
-        // $("#typPodrozy1").prop("checked", true);
     }
 
     // Typ podróży
     function typeOfTrip() {
 
-        // console.log("Radio button switched");
         tripType = this.value;
-        // console.log(tripType);
 
         if (tripType == 1) {
-            // console.log("Ustawiam nową dietę");
-            // let oldTripAllowance =  $("#labelKwotaDieta").val();
             let newTripAllowance = oldTripAllowance + ",00";
             $("#labelKwotaDieta").val(newTripAllowance);
-            // console.log("Ustawiam nową dietę w fukcji");
         }
 
         if (tripType == 2) {
-            // console.log("Ustawiam nową dietę");
-            // let oldTripAllowance =  $("#labelKwotaDieta").val();
             let newTripAllowance = oldTripAllowance / 2;
             $("#labelKwotaDieta").val(newTripAllowance.toFixed(2).replace(".", ","));
-
-            // console.log("Ustawiam nową dietę w fukcji");
         }
 
         if (tripType == 3) {
-            // console.log("Ustawiam nową dietę");
-            // let oldTripAllowance =  $("#labelKwotaDieta").val();
             let newTripAllowance = oldTripAllowance / 4;
             $("#labelKwotaDieta").val(newTripAllowance.toFixed(2).replace(".", ","));
-            // console.log("Ustawiam nową dietę w fukcji");
         }
         console.log(tripType);
 
@@ -118,7 +85,6 @@ $(function () {
 
 
     // Obliczenie czasu podróży zagranicznej i wyświetlenie wyniku
-    // Funkcje jest negatywnym przykładaem podwójnej odpowiedzialności obliczenia czasu podróży i wyświetlenia wyniku
     function getTripTime() {
 
         var dataRozpoPodrZ = $("#dataRozpoPodrZ").val();
@@ -225,7 +191,6 @@ $(function () {
     // Obliczenie należności za zakwaterowanie wypłacanych ryczałtem
     function obliczKosztZakwaterowaniaRyczaltZ() {
 
-        //var limitZagrStawka = parseFloat(limitZ); //limit noclegowy zagraniczny
         //Wartość stawki pobiera się z okna, z którego się wyświetla
         var limitZagrStawka = $("#labelLimitNocleg").val().replace(",", ".");
 
@@ -255,8 +220,6 @@ $(function () {
 
     // Obliczenie należności za dojazdy komunikacją miejską wypłacanych ryczałtem
     function obliczRyczaltZaDojazdyZ() {
-        //var ryczaltStawka = 0.1 * parseFloat(dietaZ);
-        //var limitZagrStawka = $("#labelKwotaDieta").val();
         var ryczaltStawka = 0.1 * $("#labelKwotaDieta").val().replace(",", ".");;
 
         var komunikacjaMiejska = $("#komunikacjaMiejskaZ").is(':checked');
@@ -328,9 +291,7 @@ $(function () {
 
 
 
-    //////////////////////////
     // 3/3. KONTROLER
-    //////////////////////////
 
     // Pojawienie się pomocy
     $("#podrZagrInst").click(function () {

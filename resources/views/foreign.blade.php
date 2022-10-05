@@ -17,46 +17,6 @@
 
                 <div class="col-sm-3"></div>
 
-                {{-- <div class="col-sm-3">
-                    <button type="button" class="btn btn-block" id="buttonPodrozZagranicznaPomoc" data-toggle="modal"
-                        data-target=".bd-example-modal-xl">Pomoc</button>
-                </div> --}}
-
-                {{-- <div class="modal fade bd-example-modal-xl" id="exampleModal" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header d-block">
-                                <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <div>
-                                    <h5><strong>Instrukcja wypełnienia formularza dla podróży zagranicznej</strong></h5>
-
-                                    1. Wybierz miejsce podróży. <br>
-                                    2. Wypełnij datę i godzinę rozpoczęcia oraz zakończenia podróży. <br>
-                                    3. Naciśnij "Oblicz Podróż". <br>
-                                    4. Uzupełnij koszty: Wyżywienie, Zakwaterowanie, Inne wydatki. <br>
-                                    4. Naciśnij "Oblicz Koszty". <br>
-                                    5. W przypadku wcześniejszego pobrania zaliczki wpisz otrzymaną kwotę w pole formularza
-                                    "Zaliczka". <br>
-                                    6. Naciśnij "Oblicz Rachunek". <br> <br>
-                                </div>
-                                <h5>Prawidłowo wypełniony formularz wygląda następująco:</h5>
-                            </div>
-                            <div class="modal-body">
-                                <img src="img/pomoc_podr_zagraniczna.png"
-                                    alt="Pomoc wypełnienia formularza Podróż zagraniczna" class="img-fluid" />
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-block przycisk4" data-dismiss="modal">Zamknij
-                                    Pomoc</button>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-
             </div>
 
 
@@ -69,8 +29,7 @@
                 <div class="col-sm-3">
                     <div class="mt-1 ">Rozpoczęcie podróży zagranicznej w Polsce: </div>
                     <div class="radio mt-2">
-                        <label><input type="radio" class="trip-type" name="typPodrozy" value="1" id="typPodrozy1"
-                                checked> Polska ->
+                        <label><input type="radio" class="trip-type" name="typPodrozy" value="1" id="typPodrozy1" checked> Polska ->
                             Państwo A</label>
                     </div>
 
@@ -306,13 +265,11 @@
                     <p>Korzystałem z:</p>
                     <form id="idZakwaterowanieForm">
                         <div class="radio">
-                            <label><input type="radio" name="zakwaterowanieButton" value="1"
-                                    id="zakwaterowanieButton1Z" checked>
+                            <label><input type="radio" name="zakwaterowanieButton" value="1" id="zakwaterowanieButton1Z" checked>
                                 ryczałtu </label>
                         </div>
                         <div class="radio">
-                            <label><input type="radio" name="zakwaterowanieButton" value="2"
-                                    id="zakwaterowanieButton2Z"> zakwaterowania
+                            <label><input type="radio" name="zakwaterowanieButton" value="2" id="zakwaterowanieButton2Z"> zakwaterowania
                                 w hotelu</label>
                         </div>
                         <div id="miejsceRozp">
@@ -367,8 +324,7 @@
                 </div>
                 <div class="col-sm-3">
                     <div id="buttonObliczKosztyIdZ">
-                        <button type="button" id="buttonObliczKosztyIdZ"
-                            class="btn btn-block przycisk2 button-foreign">Oblicz
+                        <button type="button" id="buttonObliczKosztyIdZ" class="btn btn-block przycisk2 button-foreign">Oblicz
                             Koszty</button>
                     </div>
                 </div>
@@ -402,8 +358,7 @@
 
                 <div class="col-sm-3">
                     <div id="buttonObliczRachunekIdZlabel">
-                        <button type="button" id="buttonObliczRachunekIdZ"
-                            class="btn btn-block przycisk3 button-foreign">Oblicz
+                        <button type="button" id="buttonObliczRachunekIdZ" class="btn btn-block przycisk3 button-foreign">Oblicz
                             Rachunek</button>
                     </div>
                 </div>

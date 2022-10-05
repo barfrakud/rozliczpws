@@ -15,7 +15,7 @@ $(function () {
     var ogolem = 0;
 
     //Funkcja ustawiające numer wersji oprogramowania na każdej stronie i podstronie.
-    document.getElementById("idFooterText").innerHTML = "rozliczPWS.pl v2.0.0 &#169 barfrakud";
+    document.getElementById("idFooterText").innerHTML = "rozliczPWS.pl v2.1.0 &#169 barfrakud";
 
     //Funkcja dodawanie danych do tabeli
     $("#buttonDodaj").click(function () {
@@ -172,9 +172,6 @@ $(function () {
             $("#kosztPrzejazduError").html(err).show(300);
         }
 
-
-
-
         if (blad !== true) {
             //Pojawienie się tabeli
             $(".tabPod").show(300);
@@ -211,13 +208,6 @@ $(function () {
         $("#idNoclegiRachunki").html("");
         $("#idOgolem").html("");
 
-
     });
-
-
-
-
-
-
 
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Classes\NationalTripClass;
+use Illuminate\Support\Facades\App;
 
 class HomeController extends Controller
 {
@@ -59,11 +60,6 @@ class HomeController extends Controller
 
     public function krajowaObliczRachunek(Request $request)
     {
-        // Zmienne
-        // $dietaKrajowaStawka = 30;
-        // $komunikajcaMiejskaRyczaltStawka = 6;
-        // $noclegRyczaltStawka = 45;
-
         $nationalTrip = new NationalTripClass;
 
         //Odebranie danych i przypisanie do zmiennych
@@ -114,9 +110,7 @@ class HomeController extends Controller
         $inneKoszt = $nationalTrip->obliczInne($inneKoszt);
         $obliczOgolemWynik = $nationalTrip->obiczOgolem($razemDojazdyPrzejazdy, $dietaMinusOdliczenia, $kosztNoclegu, $noclegRyczaltWynik, $inneKoszt);
 
-        ///////////////////////////////////////////////////////////////////////////////
         //Przygotowanie danych do odesłania w postaci tabeli
-
         $wynik = array();
         $wynik['ryczaltDojazdy'] = number_format($ryczaltDojazdy, 2, ",", ".");
         $wynik['razemDojazdyPrzejazdy'] = number_format($razemDojazdyPrzejazdy, 2, ",", ".");
@@ -148,11 +142,4 @@ class HomeController extends Controller
     {
         return view('legal');
     }
-
-
-    // PODRÓŻ KRAJOWA
-
-
-    // PODRÓŻ ZAGRANICZNA
-
 }

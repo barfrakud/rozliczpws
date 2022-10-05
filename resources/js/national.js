@@ -4,7 +4,7 @@ $(function () {
     // Definicje funkcji
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Funkcja ustawiające numer wersji oprogramowania na każdej stronie i podstronie.
-    document.getElementById("idFooterText").innerHTML = "rozliczPWS.pl v2.0.0 &#169 barfrakud";
+    document.getElementById("idFooterText").innerHTML = "rozliczPWS.pl v2.1.0 &#169 barfrakud";
 
     // Funkcja - Odczytywanie danych z tabeli i przesłanie AJAX'em do skryptu php
     function obliczPodroze() {
@@ -12,15 +12,15 @@ $(function () {
         // Inicjacja tabeli
         var tab = document.getElementById("tabelaPodroz");
 
-        //Ilość rzędów w tabeli
+        // Ilość rzędów w tabeli
         var iloscRzedow = tab.rows.length;
 
-        //Parsowanie danych z tabeli
-        //Miejscowość
+        // Parsowanie danych z tabeli
+        // Miejscowość
         var mRozpoPodr = tab.rows[1].cells[0].innerHTML;
         var mZakonPodr = tab.rows[iloscRzedow - 1].cells[3].innerHTML;
 
-        //Czas podróży
+        // Czas podróży
         var czRozpoPodr = tab.rows[1].cells[1].innerHTML + " " + tab.rows[1].cells[2].innerHTML;
         var czZakonPodr = tab.rows[iloscRzedow - 1].cells[4].innerHTML + " " + tab.rows[iloscRzedow - 1].cells[5].innerHTML;
 
@@ -28,9 +28,7 @@ $(function () {
         var kosztPodr = 0;
         var i;
         for (i = 1; i < iloscRzedow; i++) {
-            //kosztPodr += Number(tab.rows[i].cells[7].innerHTML);
             kosztPodr += Number(parseFloat((tab.rows[i].cells[7].innerHTML).replace(",", ".")).toFixed(2));
-            //parseFloat(yourString).toFixed(2)
         }
 
         // AJAX wysłanie/odebranie danych do/z serwera
@@ -48,11 +46,9 @@ $(function () {
             success: function (dane) {
 
                 //Prezentacja obliczeń
-                //var rozpoczeciePodrozy = dane[0] + ", " + dane[2];
                 var rozpoczeciePodrozyFormat = dane[0] + ", " + dane[2].slice(8, 10) + "." + dane[2].slice(5, 7) + "." + dane[2].slice(0, 4) + ", " + dane[2].slice(11, 16); //2019-02-02 22:43
                 $("#rozpoczeciePodrozy").html("<b>" + "<em>" + rozpoczeciePodrozyFormat + "</em>" + "</b>");
 
-                //var zakonczeniePodrozy = dane[1] + " " + dane[3];
                 var zakonczeniePodrozyFormat = dane[1] + ", " + dane[3].slice(8, 10) + "." + dane[3].slice(5, 7) + "." + dane[3].slice(0, 4) + ", " + dane[3].slice(11, 16);
                 $("#zakonczeniePodrozy").html("<b>" + "<em>" + zakonczeniePodrozyFormat + "</em>" + "</b>");
 
@@ -341,7 +337,6 @@ $(function () {
                 throw "Podaj stawkę za km!";
             }
             //Sprawdzenie poprzez wyrażenie reguralne - to jest lepszy algorytm przy czym input musi być typu "text"
-            //var regex = /^\d{0,4}(\,\d{1,2})?$/;
             var regex = /^[0]([.]|[,])(([0-7][0-9])|([8][0-3]))$/;
 
             if (!regex.test(dowolnaStawka)) {
@@ -367,8 +362,6 @@ $(function () {
 
 
     // Kontroler
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
     // Wywołanie funkcji obliczPodroze()
     $("#buttonOblicz").click(function () {
@@ -380,7 +373,6 @@ $(function () {
         var bladRachunek = false; //zmienna kontrolująca stan walidacji wyłączona, żeby można przeprowadić obliczenia
 
         // Walidacja ilości dni dla komunikacji miejskiej
-        // bladRachunek - umyślnie wyłączony, żeby pojawił sie komunikat ale, żeby przeprowadzono obliczenia
         $("#komunikacjaMiejskaIloscDniError").html("").hide(100);
 
         // Inicjacja tabeli 2
