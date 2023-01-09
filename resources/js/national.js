@@ -4,7 +4,7 @@ $(function () {
     // Definicje funkcji
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Funkcja ustawiające numer wersji oprogramowania na każdej stronie i podstronie.
-    document.getElementById("idFooterText").innerHTML = "rozliczPWS.pl v2.1.0 &#169 barfrakud";
+    document.getElementById("idFooterText").innerHTML = "rozliczPWS.pl v2.1.1 &#169 barfrakud";
 
     // Funkcja - Odczytywanie danych z tabeli i przesłanie AJAX'em do skryptu php
     function obliczPodroze() {

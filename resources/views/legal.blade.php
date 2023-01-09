@@ -30,6 +30,11 @@
                         w sprawie należności przysługujących pracownikowi zatrudnionemu w państwowej
                         lub samorządowej jednostce sfery budżetowej z tytułu podróży służbowej (Dz.U. 2022 poz. 1481).
                     </li>
+                    <li>
+                        Rozporządzenie Ministra Rodziny i Polityki Społecznej z dnia 25 października 2022 r. zmieniające rozporządzenie
+                        w sprawie należności przysługujących pracownikowi zatrudnionemu w państwowej lub samorządowej jednostce sfery
+                        budżetowej z tytułu podróży służbowej (Dz.U. 2022 poz. 2302).
+                    </li>
                 </ul>
 
                 <p>
