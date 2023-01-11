@@ -20,7 +20,7 @@ $(function () {
     // 2/3. FUNCKCJE
 
     //Funkcja ustawiające numer wersji oprogramowania na każdej stronie i podstronie.
-    document.getElementById("idFooterText").innerHTML = "rozliczPWS.pl v2.1.1 &#169 barfrakud";
+    document.getElementById("idFooterText").innerHTML = "rozliczPWS.pl v2.1.2 &#169 barfrakud";
 
     // Wybór miejsca podróży z przypisaniem poszczególnych wartości
     function selectDestination() {

@@ -4,7 +4,7 @@ $(function () {
     // Definicje funkcji
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Funkcja ustawiające numer wersji oprogramowania na każdej stronie i podstronie.
-    document.getElementById("idFooterText").innerHTML = "rozliczPWS.pl v2.1.1 &#169 barfrakud";
+    document.getElementById("idFooterText").innerHTML = "rozliczPWS.pl v2.1.2 &#169 barfrakud";
 
     // Funkcja - Odczytywanie danych z tabeli i przesłanie AJAX'em do skryptu php
     function obliczPodroze() {
@@ -394,9 +394,10 @@ $(function () {
         var hotelKoszt = $("#kosztHotel").val();
         try {
             $("#kosztHotelError").html("").hide(100);
-            if (hotelKoszt >= 600 * ilosdDobPodrozy && ($("#zakwaterowanieButton2").is(':checked'))) {
+            if ((ilosdDobPodrozy == 0) && (hotelKoszt > 900) && ($("#zakwaterowanieButton2").is(':checked')) ||
+                (ilosdDobPodrozy > 0) && (hotelKoszt > 900 * ilosdDobPodrozy) && ($("#zakwaterowanieButton2").is(':checked'))) {
                 //bladRachunek = true;
-                throw "Przekroczyłeś limit za nocleg";
+                throw "Przekroczyłeś limit za nocleg!";
             }
         } catch (err) {
             $("#kosztHotelError").html(err).show(300);

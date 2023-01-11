@@ -15,7 +15,7 @@ $(function () {
     var ogolem = 0;
 
     //Funkcja ustawiające numer wersji oprogramowania na każdej stronie i podstronie.
-    document.getElementById("idFooterText").innerHTML = "rozliczPWS.pl v2.1.1 &#169 barfrakud";
+    document.getElementById("idFooterText").innerHTML = "rozliczPWS.pl v2.1.2 &#169 barfrakud";
 
     //Funkcja dodawanie danych do tabeli
     $("#buttonDodaj").click(function () {
