@@ -1,10 +1,10 @@
 # Skill: jenkins-docker-cicd
 
 ## Goal
-Implement phase D from `review-report.md` using Jenkins running as a Docker container.
+Implement phase D from `docs/review-report.md` using Jenkins running as a Docker container.
 
 ## Inputs
-- `review-report.md`
+- `docs/review-report.md`
 - existing release/update manuals
 - repository build/test commands
 
@@ -42,4 +42,3 @@ Implement phase D from `review-report.md` using Jenkins running as a Docker cont
 - `Jenkinsfile`
 - updated deployment docs
 - clear setup notes for Jenkins Docker runtime
-

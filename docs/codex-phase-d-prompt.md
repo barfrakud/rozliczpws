@@ -1,4 +1,4 @@
-Implement only **Phase D** from `review-report.md` for this repository.
+Implement only **Phase D** from `docs/review-report.md` for this repository.
 
 Scope:
 - CI/CD with Jenkins running in Docker on server
@@ -7,7 +7,7 @@ Scope:
 - documentation updates
 
 Rules:
-1. Read `review-report.md` and apply only items from Phase D (points 11, 12, 13).
+1. Read `docs/review-report.md` and apply only items from Phase D (points 11, 12, 13).
 2. Do not refactor unrelated app logic from phases A/B/C/E.
 3. Keep changes practical and maintainable (junior-friendly, no over-engineering).
 4. Never commit secrets, keys, or credentials.
@@ -40,7 +40,7 @@ Required implementation:
   - rollback command/step in Jenkins (manual or scripted)
 
 4. Harden deployment docs
-- Update `release_manual.md` and `update_manual.md`:
+- Update `docs/release_manual.md` and `docs/update_manual.md`:
   - remove unsafe production commands (`composer update`, `npm audit fix --force` on prod)
   - document Jenkins Docker setup baseline:
     - persistent volume (`jenkins_home`)
@@ -56,7 +56,7 @@ Required implementation:
 
 Deliverables:
 1. `Jenkinsfile`
-2. Updated deployment docs (`release_manual.md`, `update_manual.md`, and optionally README)
+2. Updated deployment docs (`docs/release_manual.md`, `docs/update_manual.md`, and optionally README)
 3. Clear list of required Jenkins credentials (names and purpose, no values)
 4. Rollback procedure documented and linked to pipeline flow
 
@@ -70,4 +70,3 @@ Final response format:
 2. Files changed
 3. Validation results
 4. Remaining manual actions for server/Jenkins admin
-

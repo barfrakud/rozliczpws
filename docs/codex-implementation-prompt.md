@@ -1,7 +1,7 @@
-Implement the modernization plan from `review-report.md` in this repository.
+Implement the modernization plan from `docs/review-report.md` in this repository.
 
 Execution rules:
-1. Read `review-report.md` first and treat it as the source of truth.
+1. Read `docs/review-report.md` first and treat it as the source of truth.
 2. Implement phases in order: A -> B -> C -> D -> E.
 3. Keep solutions at Junior Laravel level: clean, correct, no over-engineering.
 4. Prefer small, reviewable commits (if commit mode is enabled).

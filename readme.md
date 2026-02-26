@@ -64,9 +64,9 @@ npm run production
 
 ## Deployment (Jenkins)
 - Pipeline definition: `Jenkinsfile`
-- Release guide: `release_manual.md`
-- Update policy: `update_manual.md`
-- Step-by-step Jenkins startup/config: `jenkins_setup_procedure.md`
+- Release guide: `docs/release_manual.md`
+- Update policy: `docs/update_manual.md`
+- Step-by-step Jenkins startup/config: `docs/jenkins_setup_procedure.md`
 
 Deployment is branch-gated (`main`) and uses a release symlink strategy with rollback support.
 

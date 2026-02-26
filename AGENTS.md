@@ -1,10 +1,10 @@
 # AGENTS.md
 
 ## Purpose
-This repository uses Codex CLI to implement and maintain changes based on `review-report.md`.
+This repository uses Codex CLI to implement and maintain changes based on `docs/review-report.md`.
 
 ## Default Working Contract
-1. Read `review-report.md` before major implementation work.
+1. Read `docs/review-report.md` before major implementation work.
 2. Execute work by phases (A -> B -> C -> D -> E).
 3. Keep implementation level practical and junior-friendly.
 4. Prefer safe refactors with tests over large rewrites.
@@ -12,11 +12,11 @@ This repository uses Codex CLI to implement and maintain changes based on `revie
 
 ## Available Local Skills
 - `laravel-plan-implementation`  
-  Description: Implements phases A, B, C, E from `review-report.md` for Laravel app code, frontend cleanup, tests, and documentation.  
+  Description: Implements phases A, B, C, E from `docs/review-report.md` for Laravel app code, frontend cleanup, tests, and documentation.  
   File: `skills/laravel-plan-implementation/SKILL.md`
 
 - `jenkins-docker-cicd`  
-  Description: Implements phase D from `review-report.md` with Jenkins in Docker, Jenkinsfile pipeline, deployment flow, and docs.  
+  Description: Implements phase D from `docs/review-report.md` with Jenkins in Docker, Jenkinsfile pipeline, deployment flow, and docs.  
   File: `skills/jenkins-docker-cicd/SKILL.md`
 
 ## Trigger Rules

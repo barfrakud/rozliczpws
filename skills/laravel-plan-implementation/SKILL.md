@@ -1,10 +1,10 @@
 # Skill: laravel-plan-implementation
 
 ## Goal
-Implement phases A, B, C, and E from `review-report.md` in a safe and incremental way.
+Implement phases A, B, C, and E from `docs/review-report.md` in a safe and incremental way.
 
 ## Inputs
-- `review-report.md`
+- `docs/review-report.md`
 - current Laravel codebase
 
 ## Workflow
@@ -35,4 +35,3 @@ Implement phases A, B, C, and E from `review-report.md` in a safe and incrementa
 - updated tests
 - updated README and environment examples
 - short change summary
-

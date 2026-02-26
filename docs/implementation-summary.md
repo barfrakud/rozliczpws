@@ -1,4 +1,4 @@
-﻿# Implementation Summary
+# Implementation Summary
 
 ## 1. Summary by phase
 
