@@ -69,3 +69,55 @@ If deployment is unhealthy:
 3. Investigate failing release before next deploy.
 
 Rollback switches symlink from `current` to `previous` and refreshes Laravel caches.
+
+## 7. Development update procedure
+Use this workflow only on local/staging branch work, never directly on production server.
+
+1. Create update branch from current `main`.
+2. Update PHP dependencies.
+
+```bash
+composer outdated
+composer update
+```
+
+To update only Laravel framework:
+
+```bash
+composer update laravel/framework --with-all-dependencies
+```
+
+For major Laravel upgrade, set target version explicitly (example: `^10.0`) and follow official upgrade guide:
+
+```bash
+composer require laravel/framework:^<target_major>.0 --with-all-dependencies
+```
+
+3. Update JavaScript dependencies.
+
+```bash
+npm outdated
+npm update
+```
+
+Optional major JS dependency refresh:
+
+```bash
+npx npm-check-updates -u
+npm install
+```
+
+4. Clear caches and verify.
+
+```bash
+php artisan optimize:clear
+php artisan test
+npm run production
+```
+
+5. Run quick smoke test in browser (`/`, `/krajowa`, `/zagraniczna`, `/kontakt`).
+6. Commit code changes and lockfiles (`composer.lock`, `package-lock.json`) in the same PR.
+
+## 8. Developer manual
+For full local run and update guide, use:
+- `docs/dev_manual.md`

@@ -67,6 +67,7 @@ npm run production
 - Release guide: `docs/release_manual.md`
 - Update policy: `docs/update_manual.md`
 - Step-by-step Jenkins startup/config: `docs/jenkins_setup_procedure.md`
+- Developer guide: `docs/dev_manual.md`
 
 Deployment is branch-gated (`main`) and uses a release symlink strategy with rollback support.
 
