@@ -15,6 +15,7 @@ $(function () {
     var ogolem = 0;
 
 
+    // Add one trip segment row after client-side validation.
     $("#buttonDodaj").click(function () {
 
         var miejsceRozpoPodr = $("#miejsceRozpoPodr").val();
@@ -153,6 +154,7 @@ $(function () {
         }
 
         if (blad !== true) {
+            // Keep table-based flow because summary logic reads first/last row later.
             $(".tabPod").show(300);
             $(".tabPod").css('display', 'flex');
             $("#buttonUsunIdRow").show(300);
@@ -173,6 +175,7 @@ $(function () {
 
     });
 
+    // Removing rows also clears computed summary fields to avoid stale results.
     $("#buttonUsun").click(function () {
         $("table tbody").find('input[name="record"]').each(function () {
             if ($(this).is(":checked")) {

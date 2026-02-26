@@ -20,6 +20,7 @@ class ContactMessageMail extends Mailable
 
     public function build(): self
     {
+        // Keep SPF/DMARC-safe sender from app config, user address goes to Reply-To.
         return $this->from((string) config('mail.from.address'), (string) config('mail.from.name'))
             ->replyTo($this->email, $this->name)
             ->subject('New contact message from rozliczPWS.pl')

@@ -12,6 +12,7 @@ class NationalTripService
 
     public function calculateTripSummary(array $data): array
     {
+        // Response shape is kept as an indexed array for existing frontend integration.
         return [
             $data['mRozpoPodr'],
             $data['mZakonPodr'],
@@ -39,10 +40,12 @@ class NationalTripService
         $otherCosts = (float) $data['wydatkiKwota'];
 
         $cityTransportLumpSum = 0.0;
+        // Option A: city transport based on calculated trip time.
         if ($cityTransportByTravelTime) {
             $cityTransportLumpSum = $this->nationalTrip->calculateCityTransportLumpSum($start, $stop);
         }
 
+        // Option B: city transport based on manually provided number of days.
         if ($cityTransportByDays) {
             $cityTransportLumpSum = $cityTransportDays * $this->nationalTrip->cityTransportLumpSumRate;
         }
@@ -60,6 +63,7 @@ class NationalTripService
             ->calculateDietAllowances($breakfastCount, $lunchCount, $dinnerCount, $start, $stop)['dietaMinusOdliczenia'];
 
         if ($hotelLumpSum) {
+            // Lump sum and hotel invoice are mutually exclusive in this settlement flow.
             $nightLumpSum = $this->nationalTrip->calculateNightLumpSum($start, $stop);
             $hotelCost = 0.0;
         } else {

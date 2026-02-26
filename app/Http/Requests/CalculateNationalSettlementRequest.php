@@ -33,6 +33,8 @@ class CalculateNationalSettlementRequest extends FormRequest
 
     protected function prepareForValidation(): void
     {
+        // Frontend sends booleans and decimals in mixed formats (e.g. "true", "12,50").
+        // Normalize here so validation and service layer work on predictable values.
         $this->merge([
             'komunikacjaMiejskaRadio1' => $this->normalizeBoolean($this->input('komunikacjaMiejskaRadio1')),
             'komunikacjaMiejskaRadio2' => $this->normalizeBoolean($this->input('komunikacjaMiejskaRadio2')),

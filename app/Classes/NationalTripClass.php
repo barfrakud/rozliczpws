@@ -52,6 +52,7 @@ class NationalTripClass
         $dEnd = new DateTime($stop);
         $dDiff = $dStart->diff($dEnd);
 
+        // Keep legacy response keys because frontend and tests still rely on them.
         return [
             'CPdoba' => (int) $dDiff->format('%a'),
             'CPgodzina' => (int) $dDiff->format('%h'),
@@ -79,6 +80,7 @@ class NationalTripClass
             return $travelDays * $this->cityTransportLumpSumRate;
         }
 
+        // A started additional day gives one extra city transport lump sum.
         if ($travelDays > 0 && ($travelMinutes > 0 || $travelHours > 0)) {
             return ($this->cityTransportLumpSumRate * $travelDays) + $this->cityTransportLumpSumRate;
         }
@@ -110,6 +112,7 @@ class NationalTripClass
 
     public function calculateDietAllowances(int $breakfast, int $lunch, int $dinner, string $start, string $stop): array
     {
+        // Meal deductions follow domestic trip percentages: 25/50/25.
         $deductions = ($breakfast * 0.25 * $this->domesticPerDiemRate)
             + ($lunch * 0.5 * $this->domesticPerDiemRate)
             + ($dinner * 0.25 * $this->domesticPerDiemRate);
@@ -120,6 +123,7 @@ class NationalTripClass
         $travelMinutes = $travelTime['CPminuta'];
         $calculatedDiet = 0.0;
 
+        // Domestic per-diem for a trip shorter than one day.
         if ($travelDays === 0) {
             if ($travelHours < 8) {
                 $calculatedDiet = 0.0;
@@ -129,6 +133,7 @@ class NationalTripClass
                 $calculatedDiet = $this->domesticPerDiemRate;
             }
         } else {
+            // Full days first, then a rule for the remaining partial day.
             $calculatedDiet = $travelDays * $this->domesticPerDiemRate;
 
             if ($travelHours === 0 && $travelMinutes === 0) {
@@ -161,6 +166,7 @@ class NationalTripClass
         $endAt = new DateTime($stop);
         $nightShifts = 0;
 
+        // Iterate day-by-day and detect if the trip covers the legal night window.
         while ($startAt <= $endAt) {
             if (($startAt >= (clone $startAt)->setTime(0, 0, 0))
                 && ($startAt <= (clone $startAt)->setTime(1, 0, 0))

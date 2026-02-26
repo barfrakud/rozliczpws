@@ -12,12 +12,14 @@ $(function () {
 
         var iloscRzedow = tab.rows.length;
 
+        // Start is read from the first segment, end from the last segment.
         var mRozpoPodr = tab.rows[1].cells[0].innerHTML;
         var mZakonPodr = tab.rows[iloscRzedow - 1].cells[3].innerHTML;
 
         var czRozpoPodr = tab.rows[1].cells[1].innerHTML + " " + tab.rows[1].cells[2].innerHTML;
         var czZakonPodr = tab.rows[iloscRzedow - 1].cells[4].innerHTML + " " + tab.rows[iloscRzedow - 1].cells[5].innerHTML;
 
+        // Sum transport cost from all rows in the trip table.
         var kosztPodr = 0;
         var i;
         for (i = 1; i < iloscRzedow; i++) {
@@ -65,6 +67,7 @@ $(function () {
         var czRozpoPodr = tab.rows[1].cells[1].innerHTML + " " + tab.rows[1].cells[2].innerHTML;
         var czZakonPodr = tab.rows[iloscRzedow - 1].cells[4].innerHTML + " " + tab.rows[iloscRzedow - 1].cells[5].innerHTML;
 
+        // Recalculate cost on every submit to stay in sync with edited rows.
         var kosztPodr = 0;
         var i;
         for (i = 1; i < iloscRzedow; i++) {
@@ -131,6 +134,7 @@ $(function () {
     }
 
     function zamienMiejscowosci() {
+        // Convenience helper for return trip: swap start/end and reset dependent inputs.
         var miejsceRozpoPodr = $("#miejsceRozpoPodr").val();
         var miejsceZakonPodr = $("#miejsceZakonPodr").val();
         $("#miejsceRozpoPodr").val(miejsceZakonPodr);
@@ -170,6 +174,7 @@ $(function () {
 
         var przejachaneKM = $("#iloscKM").val();
 
+        // Private car cost is a simple km * rate formula.
         var koszPrzejazdu = przejachaneKM * stawka;
         return koszPrzejazdu;
     }
@@ -334,6 +339,7 @@ $(function () {
         var iloscWpisanychDob = $("#komunikacjaMiejskaIloscDni").val();;
 
         try {
+            // User cannot declare more city-transport days than the trip duration.
             if (iloscWpisanychDob - 1 > ilosdDobPodrozy) {
                 throw "Ilość podanych dni przekracza ilość dni podróży!";
             }
@@ -343,6 +349,7 @@ $(function () {
 
         var hotelKoszt = $("#kosztHotel").val();
         try {
+            // Basic accommodation cap check used in this settlement variant.
             $("#kosztHotelError").html("").hide(100);
             if ((ilosdDobPodrozy == 0) && (hotelKoszt > 900) && ($("#zakwaterowanieButton2").is(':checked')) ||
                 (ilosdDobPodrozy > 0) && (hotelKoszt > 900 * ilosdDobPodrozy) && ($("#zakwaterowanieButton2").is(':checked'))) {

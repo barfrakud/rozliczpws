@@ -1,4 +1,597 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
-body{background-color:#f6f3f3;font-family:Open Sans,sans-serif}nav{background-color:#145393;margin-bottom:20px;margin-top:20px}header .row{align-items:center;display:flex}header h1{font-weight:400;margin:0}header nav{display:flex;justify-content:flex-end}header p{margin:0;padding:0 20px}.jumbotron{align-items:center;background-image:url(../images/pexels-photo-297755B.jpg);background-position:50%;background-size:cover;color:#fff;display:flex;height:600px;max-width:1280px;text-shadow:2px 2px 4px #000;width:100%}.jumbotron h2{color:#fff;font-size:5vmin;font-weight:700;margin:0}.jumbotron h3{color:#fff;font-size:40px;margin:0 0 20px}section .row img{margin:0 0 30px;width:100%}.col-md-6{margin:0 0 30px}.btn.btn-primary{background-color:#fff;border:0;border-radius:2px;color:#000;margin:10px;text-shadow:none;width:170px}.btn.btn-primary:hover{background-color:#955f62;color:#fff}.btn-secondary{background-color:#e8dfe0;color:#fff;margin:0 0 30px}button{background-color:#955f62;color:#fff}#idFooterText{font-size:12px}#idTabelaRachunek{width:100%}#idTabelaRachunek .tabelaTdRachunek{text-align:right}#idTabelaPodroz{width:100%}#idTabelaPodroz .tabelaTdPodroz{text-align:right}.tab1{margin-left:2.5em}.tabPod{display:none}#czasTrwaniaPodrozyZ,#labelDietaZ,#labelDietaZOdliczenia,#labelInneWydatkiPodsumZ,#labelKosztZakwatarewaniaRyczaltZ,#labelKwotaDieta,#labelLimitNocleg,#labelWaluta,#labelZOdliczenia,#roznica,#rozpoczeciePodrozyZ,#wydatkowano,#zakonczeniePodrozyZ{background:#e9ecef;background-clip:padding-box;border:1px solid #ced4da;border-radius:.25rem;color:#495057;display:block;font-size:1rem;height:calc(2.25rem + 2px);line-height:1.5;padding:.375rem .75rem;text-align:right;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;width:100%}#czasTrwaniaPodrozyZ,#labelInneWydatkiPodsumZ,#labelKwotaDieta,#labelLimitNocleg,#labelWaluta,#rozpoczeciePodrozyZ,#zakonczeniePodrozyZ{font-weight:700}label{margin-bottom:.2rem}button,input,optgroup,select,textarea{margin-bottom:1rem}.przycisk{margin-top:27px}.przycisk2:hover,.przycisk3:hover,.przycisk:hover{background:#a18d75}.przycisk2{margin-top:31px}.przycisk3{margin-top:58px}h3{margin-top:1.5rem}#miastoPodrozyIdDiv{display:none}#pozostaleWydatkiLabel{margin-top:1.5rem}#iDdojazdLotnisko{margin-top:.8rem}#podrKrajInstrukcja,#podrZagrInstrukcja{display:none;margin-bottom:3rem;margin-top:3rem}#podrKrajInst,#podrZagrInst{cursor:help;width:175px}#cardPomocId{margin-top:2rem}.podrInstrukcja{margin-bottom:3rem;margin-top:3rem}.login-page{margin:auto;padding:8% 0 0;width:360px}.form{background:#fff;box-shadow:0 0 20px 0 rgba(0,0,0,.2),0 5px 5px 0 rgba(0,0,0,.24);margin:0 auto 100px;max-width:360px;padding:45px;position:relative;text-align:center;z-index:1}.form input{background:#f2f2f2;box-sizing:border-box;margin:0 0 15px}.form button,.form input{border:0;border-radius:.25rem;font-family:Roboto,sans-serif;font-size:14px;outline:0;padding:15px;width:100%}.form button{background:#955f62;color:#fff;cursor:pointer;text-transform:uppercase;transition:all .3 ease}.form button:active,.form button:focus,.form button:hover{background:#a18d75}.form .message{color:#955f62;font-size:14px;margin:15px 0 0;text-shadow:none}.form .message a{color:#955f62;text-decoration:none;text-shadow:none}.navbar-toggler{margin-bottom:0}#przyciskZaloguj{background:#955f62;border:0;border-radius:.25rem;color:#fff;cursor:pointer;font-family:Roboto,sans-serif;font-size:14px;outline:0;padding:15px;text-transform:uppercase;transition:all .3 ease;width:100%}#przyciskZaloguj:hover{background:#a18d75}#przyciskZalozKonto{background:#955f62;border:0;border-radius:.25rem;color:#fff;cursor:pointer;font-family:Roboto,sans-serif;font-size:14px;outline:0;padding:15px;text-transform:uppercase;transition:all .3 ease;width:100%}#przyciskZalozKonto:hover{background:#a18d75}#oknoPoZalogowaniu p{color:#955f62;font-size:14px;margin:15px 0 0;text-decoration:none;text-shadow:none}.kursywaPogrubiona{font-style:italic;font-weight:700}#buttonUsunIdRow{display:none}#podstawaPrawnaDivId.legal-page{margin-bottom:2.5rem;max-width:100%;width:100%}#podstawaPrawnaDivId .legal-card{background-color:#fff;border:1px solid rgba(0,0,0,.125);border-radius:.25rem;box-shadow:none;padding:1.25rem}#podstawaPrawnaDivId .legal-card+.legal-card{margin-top:1rem}#podstawaPrawnaDivId .intro h2,#podstawaPrawnaDivId .legal-foreign h3,#podstawaPrawnaDivId .legal-national h3{background-color:rgba(0,0,0,.03);border-bottom:1px solid rgba(0,0,0,.125);color:#212529;font-size:1.25rem;font-weight:500;margin:-1.25rem -1.25rem 1rem;padding:.75rem 1.25rem}#podstawaPrawnaDivId .legal-jump-nav{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:.25rem;margin-top:1rem}#podstawaPrawnaDivId li,#podstawaPrawnaDivId p{color:#212529;line-height:1.65}#podstawaPrawnaDivId p{margin-bottom:.65rem}#podstawaPrawnaDivId ul{margin-bottom:1rem;padding-left:1.2rem}#podstawaPrawnaDivId li{margin-bottom:.45rem}#buttonPodrozKrajowaPomoc{background:#f6f3f3;border:3;border-radius:.25rem;color:#000;cursor:pointer}#buttonPodrozKrajowaPomoc:hover{background:#a18d75;border:3;border-radius:.25rem;color:#fff;cursor:pointer}.przycisk4{background-color:#955f62;color:#fff}.przycisk4:hover{background:#a18d75}.btn-block{display:block;width:100%}@media (min-width:768px){.modal-xl{max-width:1100px;width:90%}}#buttonPodrozZagranicznaPomoc{background:#f6f3f3;border:3;border-radius:.25rem;color:#000;cursor:pointer}#buttonPodrozZagranicznaPomoc:hover{background:#a18d75;border:3;border-radius:.25rem;color:#fff;cursor:pointer}em{font-style:normal}@media (min-width:992px){.navbar-expand-lg{justify-content:space-between}}.active{color:#fff}.button-foreign{background-color:#955f62;color:#fff}#dowolnaStawkaDIV,#iloscKmDIV,#stawkaZaKmDIV{display:none}.paraForError{color:red;display:none;font-style:italic;font-weight:700}
+body {
+    background-color: #F6F3F3;
+    font-family: 'Open Sans', sans-serif;
+}
 
-/*# sourceMappingURL=custom.css.map*/
+nav {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #145393;
+}
+
+header .row {
+    display: flex;
+    align-items: center;
+}
+
+header h1 {
+    font-weight: 400;
+    margin: 0;
+}
+
+header nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+header p {
+    padding: 0 20px;
+    margin: 0;
+}
+
+.jumbotron {
+    display: flex;
+    align-items: center;
+    background-image: url('../images/pexels-photo-297755B.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    height: 600px;
+    max-width: 1280px;
+    width: 100%;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.jumbotron h2 {
+    font-size: 5vmin;
+    font-weight: 700;
+    margin: 0;
+    color: #fff;
+}
+
+.jumbotron h3 {
+    font-size: 40px;
+    margin: 0 0 20px;
+    color: #fff;
+}
+
+section .row img {
+    margin: 0 0 30px;
+    width: 100%;
+}
+
+.col-md-6 {
+    margin: 0 0 30px;
+}
+
+.btn.btn-primary {
+    border-radius: 2px;
+    border: 0;
+    color: black;
+    text-shadow: none;
+    background-color: #ffffff;
+    width: 170px;
+    margin: 10px;
+}
+
+.btn.btn-primary:hover {
+    color: white;
+    background-color: #955f62;
+}
+
+.btn-secondary {
+    background-color: #E8DFE0;
+    color: #ffffff;
+    margin: 0 0 30px;
+}
+
+button {
+    color: white;
+    background-color: #955F62;
+}
+
+#idFooterText {
+    font-size: 12px;
+}
+
+#idTabelaRachunek {
+    width: 100%;
+}
+
+#idTabelaRachunek .tabelaTdRachunek {
+    text-align: right;
+}
+
+#idTabelaPodroz {
+    width: 100%;
+}
+
+#idTabelaPodroz .tabelaTdPodroz {
+    text-align: right;
+}
+
+.tab1 {
+    margin-left: 2.5em
+}
+
+
+/* Wyłączenie funkcjonalności domyślnego nie wyświetlania się*/
+/*
+#idRachunekContainer {
+    display: none;
+}
+
+#zakwaterowanie {
+    display: none;
+
+#idTabelaPodroze {
+    display: none;
+}
+
+}
+*/
+
+/*Domyślny brak wyświetlania tabeli*/
+.tabPod {
+    display: none;
+}
+
+
+
+#labelDietaZ {
+    background: #e9ecef;
+    padding: 15px;
+    height: calc(2.25rem + 2px);
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    text-align: right;
+}
+
+
+#labelDietaZOdliczenia {
+    background: #e9ecef;
+    padding: 15px;
+    height: calc(2.25rem + 2px);
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    text-align: right;
+}
+
+#labelZOdliczenia {
+    background: #e9ecef;
+    padding: 15px;
+    height: calc(2.25rem + 2px);
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    text-align: right;
+}
+
+#labelKosztZakwatarewaniaRyczaltZ,
+#wydatkowano,
+#roznica {
+    background: #e9ecef;
+    padding: 15px;
+    height: calc(2.25rem + 2px);
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    text-align: right;
+}
+
+#labelInneWydatkiPodsumZ,
+#labelWaluta,
+#labelKwotaDieta,
+#labelLimitNocleg,
+#rozpoczeciePodrozyZ,
+#zakonczeniePodrozyZ,
+#czasTrwaniaPodrozyZ {
+    background: #e9ecef;
+    padding: 15px;
+    height: calc(2.25rem + 2px);
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    /* font-style: italic; */
+    line-height: 1.5;
+    color: #495057;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    text-align: right;
+}
+
+label {
+    margin-bottom: .2rem;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    margin-bottom: 1rem;
+}
+
+.przycisk {
+    margin-top: 27px;
+}
+
+.przycisk:hover,
+.przycisk2:hover,
+.przycisk3:hover {
+    background: #A18D75;
+}
+
+.przycisk2 {
+    margin-top: 31px;
+}
+
+.przycisk3 {
+    margin-top: 58px;
+}
+
+h3 {
+    margin-top: 1.5rem;
+}
+
+
+/*Domyślny brak wyświetlania tabeli*/
+#miastoPodrozyIdDiv {
+    display: none;
+}
+
+#pozostaleWydatkiLabel {
+    margin-top: 1.5rem;
+}
+
+#iDdojazdLotnisko {
+    margin-top: 0.8rem;
+}
+
+
+#podrKrajInstrukcja,
+#podrZagrInstrukcja {
+    display: none;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+#podrKrajInst,
+#podrZagrInst {
+    cursor: help;
+    width: 175px;
+}
+
+
+#cardPomocId {
+    margin-top: 2rem;
+}
+
+.podrInstrukcja {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+/*
+CSS odpowiedzialny za logowanie
+*/
+
+.login-page {
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
+}
+
+.form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    border-radius: .25rem;
+}
+
+.form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #955F62;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    border-radius: .25rem;
+}
+
+.form button:hover,
+.form button:active,
+.form button:focus {
+    background: #A18D75;
+}
+
+.form .message {
+    margin: 15px 0 0;
+    color: #955F62;
+    font-size: 14px;
+    text-shadow: none;
+
+}
+
+.form .message a {
+    color: #955F62;
+    text-decoration: none;
+    text-shadow: none;
+}
+
+.navbar-toggler {
+    margin-bottom: 0px;
+}
+
+#przyciskZaloguj {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #955F62;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    border-radius: .25rem;
+}
+
+#przyciskZaloguj:hover {
+    background: #A18D75;
+}
+
+#przyciskZalozKonto {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #955F62;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    border-radius: .25rem;
+}
+
+#przyciskZalozKonto:hover {
+    background: #A18D75;
+}
+
+#oknoPoZalogowaniu p {
+    margin: 15px 0 0;
+    color: #955F62;
+    font-size: 14px;
+    text-shadow: none;
+    text-decoration: none;
+}
+
+.kursywaPogrubiona {
+    font-weight: bold;
+    font-style: italic;
+}
+
+/*Domyślny brak wyświetlania przycisku Usuń*/
+#buttonUsunIdRow {
+    display: none;
+}
+
+/* Legal page readability */
+#podstawaPrawnaDivId.legal-page {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 2.5rem;
+}
+
+#podstawaPrawnaDivId .legal-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    padding: 1.25rem;
+    box-shadow: none;
+}
+
+#podstawaPrawnaDivId .legal-card + .legal-card {
+    margin-top: 1rem;
+}
+
+#podstawaPrawnaDivId .intro h2,
+#podstawaPrawnaDivId .legal-national h3,
+#podstawaPrawnaDivId .legal-foreign h3 {
+    margin: -1.25rem -1.25rem 1rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #212529;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+#podstawaPrawnaDivId .legal-jump-nav {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+#podstawaPrawnaDivId p,
+#podstawaPrawnaDivId li {
+    line-height: 1.65;
+    color: #212529;
+}
+
+#podstawaPrawnaDivId p {
+    margin-bottom: 0.65rem;
+}
+
+#podstawaPrawnaDivId ul {
+    margin-bottom: 1rem;
+    padding-left: 1.2rem;
+}
+
+#podstawaPrawnaDivId li {
+    margin-bottom: 0.45rem;
+}
+
+
+/* Button Pomoc dla pomocy w podrozy zagranicznej */
+#buttonPodrozKrajowaPomoc {
+    border-color: rgb(197, 197, 197);
+    background: #F6F3F3;
+    border: 3;
+    color: black;
+    cursor: pointer;
+    border-radius: .25rem;
+}
+
+#buttonPodrozKrajowaPomoc:hover {
+    border-color: rgb(197, 197, 197);
+    background: #A18D75;
+    border: 3;
+    color: white;
+    cursor: pointer;
+    border-radius: .25rem;
+}
+
+.przycisk4 {
+    color: white;
+    background-color: #955F62;
+}
+
+
+
+.przycisk4:hover {
+    background: #A18D75;
+}
+
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* Zmiana domyślnej szerokości modułu modal w bootstrap */
+@media (min-width: 768px) {
+    .modal-xl {
+        width: 90%;
+        max-width: 1100px;
+    }
+}
+
+/* Button Pomoc dla pomocy zagranicznej */
+#buttonPodrozZagranicznaPomoc {
+    border-color: rgb(197, 197, 197);
+    background: #F6F3F3;
+    border: 3;
+    color: black;
+    cursor: pointer;
+    border-radius: .25rem;
+}
+
+#buttonPodrozZagranicznaPomoc:hover {
+    border-color: rgb(197, 197, 197);
+    background: #A18D75;
+    border: 3;
+    color: white;
+    cursor: pointer;
+    border-radius: .25rem;
+}
+
+em {
+    font-style: normal;
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg {
+        justify-content: space-between;
+    }
+}
+
+.active {
+    color: white;
+}
+
+.button-foreign {
+    color: white;
+    background-color: #955F62;
+}
+
+#stawkaZaKmDIV,
+#iloscKmDIV,
+#dowolnaStawkaDIV {
+    display: none;
+}
+
+.paraForError {
+    color: red;
+    font-style: italic;
+    font-weight: bold;
+    display: none;
+}
+

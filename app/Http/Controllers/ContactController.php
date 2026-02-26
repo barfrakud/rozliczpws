@@ -15,6 +15,7 @@ class ContactController extends Controller
 
         Contact::create($validated);
 
+        // Use dedicated destination when configured, otherwise fallback to app mailbox.
         $destinationEmail = config('mail.destination_address', config('mail.from.address'));
 
         Mail::to($destinationEmail)->send(

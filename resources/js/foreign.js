@@ -14,6 +14,7 @@ $(function () {
     let deductionLunch = 0;
     let deductionDinner = 0;
     let tripAllowanceMinusDeduction = 0; 
+    // 1 = full per-diem, 2 = half, 3 = quarter.
     let tripType = "1"; 
 
 
@@ -29,6 +30,7 @@ $(function () {
 
 
 
+        // Keep base rate so trip type changes can reuse the same selected country value.
         oldTripAllowance = $(this).find(":selected").data("value").dieta;
         console.log(oldTripAllowance);
 
@@ -88,6 +90,7 @@ $(function () {
         var dataStart = moment(start, "YYYY-MM-DDHH:mm");
         var dataStop = moment(stop, "YYYY-MM-DDHH:mm");
 
+        // Travel time is calculated from date + hour inputs using moment duration.
         var czasPodrozy = moment.duration(dataStop.diff(dataStart));
 
         var czasPodrozyDni = dataStop.diff(dataStart, 'days');
@@ -124,6 +127,7 @@ $(function () {
 
 
 
+        // Settlement rule for foreign trip: full days + partial day threshold.
         if (D > 0) {
             A = D * dietaZagrStawka;
         } else {
@@ -144,6 +148,7 @@ $(function () {
 
         var dietaZagrNowa = $("#labelKwotaDieta").val().replace(",", ".");
 
+        // Meal deductions use foreign percentages: breakfast 15%, lunch 30%, dinner 30%.
         deductionBreakfast = iloscSniadanZ * 0.15 * dietaZagrNowa;
         deductionLunch = iloscObiadowZ * 0.3 * dietaZagrNowa;
         deductionDinner = iloscKolacjiZ * 0.3 * dietaZagrNowa;
