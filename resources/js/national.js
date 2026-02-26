@@ -4,7 +4,7 @@ $(function () {
     const summaryUrl = nationalRoutes ? nationalRoutes.dataset.summaryUrl : '';
     const settlementUrl = nationalRoutes ? nationalRoutes.dataset.settlementUrl : '';
 
-    console.log('Start podrÃ³Å¼ krajowa national');
+    console.log('Start podróż krajowa national');
 
     function obliczPodroze() {
 
@@ -44,7 +44,7 @@ $(function () {
                 $("#zakonczeniePodrozy").html("<b>" + "<em>" + zakonczeniePodrozyFormat + "</em>" + "</b>");
 
                 var kosztPodrozy = dane[4];
-                $("#kosztPodrozy").html("<b>" + "<em>" + kosztPodrozy + " zÅ‚" + "</em>" + "</b>");
+                $("#kosztPodrozy").html("<b>" + "<em>" + kosztPodrozy + " zł" + "</em>" + "</b>");
 
                 var czasPodrozy = dane[5];
                 $("#czasTrwaniaPodrozy").html("<b>" + "<em>" + czasPodrozy + "</em>" + "</b>");
@@ -119,13 +119,13 @@ $(function () {
                 var obliczOgolemWynik = dane['obliczOgolemWynik'];
 
 
-                $("#idRyczalZaDojazdyWynik").html("<b>" + "<em>" + ryczaltDojazdy + " zÅ‚" + "</em>" + "</b>");
-                $("#idRazemPrzejazdyDojazdy").html("<b>" + "<em>" + razemDojazdyPrzejazdy + " zÅ‚" + "</em>" + "</b>");
-                $("#idDiety").html("<b>" + "<em>" + dietaMinusOdliczenia + " zÅ‚" + "</em>" + "</b>");
-                $("#idNoclegiRachunki").html("<b>" + "<em>" + kosztNoclegu + " zÅ‚" + "</em>" + "</b>");
-                $("#idNoclegiRyczalty").html("<b>" + "<em>" + noclegRyczaltWynik + " zÅ‚" + "</em>" + "</b>");
-                $("#idInneWydatki").html("<b>" + "<em>" + inneKoszt + " zÅ‚" + "</em>" + "</b>");
-                $("#idOgolem").html("<b>" + "<em>" + obliczOgolemWynik + " zÅ‚" + "</em>" + "</b>");
+                $("#idRyczalZaDojazdyWynik").html("<b>" + "<em>" + ryczaltDojazdy + " zł" + "</em>" + "</b>");
+                $("#idRazemPrzejazdyDojazdy").html("<b>" + "<em>" + razemDojazdyPrzejazdy + " zł" + "</em>" + "</b>");
+                $("#idDiety").html("<b>" + "<em>" + dietaMinusOdliczenia + " zł" + "</em>" + "</b>");
+                $("#idNoclegiRachunki").html("<b>" + "<em>" + kosztNoclegu + " zł" + "</em>" + "</b>");
+                $("#idNoclegiRyczalty").html("<b>" + "<em>" + noclegRyczaltWynik + " zł" + "</em>" + "</b>");
+                $("#idInneWydatki").html("<b>" + "<em>" + inneKoszt + " zł" + "</em>" + "</b>");
+                $("#idOgolem").html("<b>" + "<em>" + obliczOgolemWynik + " zł" + "</em>" + "</b>");
             }
         });
     }
@@ -150,7 +150,7 @@ $(function () {
     }
 
     function pokazPodrozSamPrywatnym() {
-        if ($("#rodzajLokom").val() === "SamochÃ³d prywatny") {
+        if ($("#rodzajLokom").val() === "Samochód prywatny") {
             $("#stawkaZaKmDIV").show(300);
             $("#iloscKmDIV").show(300);
         } else {
@@ -225,12 +225,12 @@ $(function () {
             $("#sniadanieError").html("").hide(100);
             if (sniadanieIlosc == "") {
                 blad = true;
-                throw "Podaj iloÅ›Ä‡!";
+                throw "Podaj ilość!";
             }
             var regex = /^\d+$/;
             if (!regex.test(sniadanieIlosc)) {
                 blad = true;
-                throw "Czy to na pewno jest poprawna iloÅ›Ä‡?";
+                throw "Czy to na pewno jest poprawna ilość?";
             }
         } catch (err) {
             $("#sniadanieError").html(err).show(300);
@@ -243,12 +243,12 @@ $(function () {
             $("#obiadError").html("").hide(100);
             if (obiadIlosc == "") {
                 blad = true;
-                throw "Podaj iloÅ›Ä‡!";
+                throw "Podaj ilość!";
             }
             var regex = /^\d+$/;
             if (!regex.test(obiadIlosc)) {
                 blad = true;
-                throw "Czy to na pewno jest poprawna iloÅ›Ä‡?";
+                throw "Czy to na pewno jest poprawna ilość?";
             }
         } catch (err) {
             $("#obiadError").html(err).show(300);
@@ -261,12 +261,12 @@ $(function () {
             $("#kolacjaError").html("").hide(100);
             if (kolacjaIlosc == "") {
                 blad = true;
-                throw "Podaj iloÅ›Ä‡!";
+                throw "Podaj ilość!";
             }
             var regex = /^\d+$/;
             if (!regex.test(kolacjaIlosc)) {
                 blad = true;
-                throw "Czy to na pewno jest poprawna iloÅ›Ä‡?";
+                throw "Czy to na pewno jest poprawna ilość?";
             }
         } catch (err) {
             $("#kolacjaError").html(err).show(300);
@@ -274,7 +274,7 @@ $(function () {
     }
 
     function podrozSamSluzbowym() {
-        if ($("#rodzajLokom").val() === "SamochÃ³d sÅ‚uÅ¼bowy") {
+        if ($("#rodzajLokom").val() === "Samochód służbowy") {
             $("#kosztPrzejazdu").val("0");
             $("#kosztPrzejazdu").attr('disabled', true);
 
@@ -296,7 +296,7 @@ $(function () {
             $("#kosztDowolnaStawkaZaKmError").html("").hide(100);
             if (dowolnaStawka == "") {
                 blad = true;
-                throw "Podaj stawkÄ™ za km!";
+                throw "Podaj stawkę za km!";
             }
             var regex = /^[0]([.]|[,])(([0-7][0-9])|([8][0-3]))$/;
 
@@ -335,7 +335,7 @@ $(function () {
 
         try {
             if (iloscWpisanychDob - 1 > ilosdDobPodrozy) {
-                throw "IloÅ›Ä‡ podanych dni przekracza iloÅ›Ä‡ dni podrÃ³Å¼y!";
+                throw "Ilość podanych dni przekracza ilość dni podróży!";
             }
         } catch (err) {
             $("#komunikacjaMiejskaIloscDniError").html(err).show(300);
@@ -346,7 +346,7 @@ $(function () {
             $("#kosztHotelError").html("").hide(100);
             if ((ilosdDobPodrozy == 0) && (hotelKoszt > 900) && ($("#zakwaterowanieButton2").is(':checked')) ||
                 (ilosdDobPodrozy > 0) && (hotelKoszt > 900 * ilosdDobPodrozy) && ($("#zakwaterowanieButton2").is(':checked'))) {
-                throw "PrzekroczyÅ‚eÅ› limit za nocleg!";
+                throw "Przekroczyłeś limit za nocleg!";
             }
         } catch (err) {
             $("#kosztHotelError").html(err).show(300);

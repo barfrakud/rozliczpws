@@ -30,4 +30,35 @@ class CalculateNationalSettlementRequest extends FormRequest
             'wydatkiKwota' => ['required', 'numeric', 'min:0'],
         ];
     }
+
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'komunikacjaMiejskaRadio1' => $this->normalizeBoolean($this->input('komunikacjaMiejskaRadio1')),
+            'komunikacjaMiejskaRadio2' => $this->normalizeBoolean($this->input('komunikacjaMiejskaRadio2')),
+            'komunikacjaMiejskaRadio3' => $this->normalizeBoolean($this->input('komunikacjaMiejskaRadio3')),
+            'zakwRyczalt' => $this->normalizeBoolean($this->input('zakwRyczalt')),
+            'zakwHotel' => $this->normalizeBoolean($this->input('zakwHotel')),
+            'hotelKoszt' => $this->normalizeDecimal($this->input('hotelKoszt')),
+            'wydatkiKwota' => $this->normalizeDecimal($this->input('wydatkiKwota')),
+        ]);
+    }
+
+    private function normalizeBoolean(mixed $value): mixed
+    {
+        if ($value === null) {
+            return null;
+        }
+
+        return filter_var($value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+    }
+
+    private function normalizeDecimal(mixed $value): mixed
+    {
+        if (!is_string($value)) {
+            return $value;
+        }
+
+        return str_replace(',', '.', trim($value));
+    }
 }

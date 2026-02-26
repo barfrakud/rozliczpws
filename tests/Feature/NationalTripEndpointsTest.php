@@ -60,4 +60,35 @@ class NationalTripEndpointsTest extends TestCase
             'wydatkiKwota',
         ]);
     }
+
+    public function test_settlement_endpoint_accepts_jquery_string_booleans(): void
+    {
+        $response = $this->post(route('krajowa.calculate-bill'), [
+            'czRozpoPodr' => '2026-01-01 08:00',
+            'czZakonPodr' => '2026-01-01 18:00',
+            'kosztPodr' => '120.50',
+            'komunikacjaMiejskaRadio1' => 'false',
+            'komunikacjaMiejskaRadio2' => 'true',
+            'komunikacjaMiejskaRadio3' => 'false',
+            'komunikacjaMiejskaIloscDni' => '',
+            'zakwRyczalt' => 'true',
+            'zakwHotel' => 'false',
+            'hotelKoszt' => '0',
+            'sniadanieIlosc' => '0',
+            'obiadIlosc' => '0',
+            'kolacjaIlosc' => '0',
+            'wydatkiKwota' => '0',
+        ]);
+
+        $response->assertOk();
+        $response->assertJsonStructure([
+            'ryczaltDojazdy',
+            'razemDojazdyPrzejazdy',
+            'dietaMinusOdliczenia',
+            'kosztNoclegu',
+            'noclegRyczaltWynik',
+            'inneKoszt',
+            'obliczOgolemWynik',
+        ]);
+    }
 }

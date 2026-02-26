@@ -155,7 +155,7 @@ $(function () {
         tripAllowanceMinusDeduction = (Math.round((A + B - deduction) * 100) / 100).toFixed(2);
 
         console.log(`Diety: ${tripAllowance}, Odliczenia: ${deduction}, Diety-Odliczenia: ${tripAllowanceMinusDeduction}`);
-        console.log(`Odliczenia => Åšniadanie: ${deductionBreakfast.toFixed(2)}, Obiad: ${deductionLunch.toFixed(2)}, Kolacja: ${deductionDinner.toFixed(2)}`);
+        console.log(`Odliczenia => Śniadanie: ${deductionBreakfast.toFixed(2)}, Obiad: ${deductionLunch.toFixed(2)}, Kolacja: ${deductionDinner.toFixed(2)}`);
 
         return tripAllowance;
     }
@@ -303,11 +303,11 @@ $(function () {
         $("#wydatkowano").html("<b>" + "<em>" + wydatki.toFixed(2).replace(".", ",") + " " + currency + "</em>" + "</b>");
 
         if (roznica < 0) {
-            $("#diffDisplay").text("WypÅ‚aciÄ‡ Å¼oÅ‚nierzowi:");
+            $("#diffDisplay").text("Wypłacić żołnierzowi:");
             roznica = -1 * roznica;
             $("#roznica").html("<b>" + "<em>" + roznica.toFixed(2).replace(".", ",") + " " + currency + "</em>" + "</b>");
         } else {
-            $("#diffDisplay").text("ZwrÃ³ciÄ‡ do kasy:");
+            $("#diffDisplay").text("Zwrócić do kasy:");
             $("#roznica").html("<b>" + "<em>" + roznica.toFixed(2).replace(".", ",") + " " + currency + "</em>" + "</b>");
         }
 

@@ -1,6 +1,6 @@
 $(function () {
 
-    console.log('Start podrÃ³Å¼ krajowa main');
+    console.log('Start podróż krajowa main');
 
 
     var czasPodrozyWynik = [];
@@ -34,15 +34,15 @@ $(function () {
             $("#miejsceRozpoPodrError").html("").hide(100);
 
             if (miejsceRozpoPodr == "") {
-                throw "Podaj miejscowoÅ›Ä‡ wyjazdu!";
+                throw "Podaj miejscowość wyjazdu!";
             }
 
             if (miejsceRozpoPodr.length > 30) {
                 blad = true;
-                throw "Za duÅ¼o liter!";
+                throw "Za dużo liter!";
             }
 
-            var regExpCheckPhrase = /[A-Za-zÅ¼ÅºÄ‡Å„Ã³Å‚Ä™Ä…Å›Å»Å¹Ä†Ä„ÅšÄ˜ÅÃ“Åƒ]+$/;
+            var regExpCheckPhrase = /[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]+$/;
             if (!miejsceRozpoPodr.match(regExpCheckPhrase)) {
                 blad = true;
                 throw "Czy to na pewno jest poprawna nazwa?";
@@ -56,15 +56,15 @@ $(function () {
             $("#miejsceZakonPodrError").html("").hide(100);
 
             if (miejsceZakonPodr == "") {
-                throw "Podaj miejscowoÅ›Ä‡ przyjazdu!";
+                throw "Podaj miejscowość przyjazdu!";
             }
 
             if (miejsceZakonPodr.length > 30) {
                 blad = true;
-                throw "Za duÅ¼o liter czÅ‚owieku!";
+                throw "Za dużo liter człowieku!";
             }
 
-            var regExpCheckPhrase = /[A-Za-zÅ¼ÅºÄ‡Å„Ã³Å‚Ä™Ä…Å›Å»Å¹Ä†Ä„ÅšÄ˜ÅÃ“Åƒ]+$/;
+            var regExpCheckPhrase = /[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]+$/;
             if (!miejsceZakonPodr.match(regExpCheckPhrase)) {
                 blad = true;
                 throw "Czy to na pewno jest poprawna nazwa?";
@@ -80,7 +80,7 @@ $(function () {
 
             if (rodzajLokom == "") {
                 blad = true;
-                throw "Podaj Å›rodek lokomocji!";
+                throw "Podaj środek lokomocji!";
             }
         } catch (err) {
             $("#rodzajLokomError").html(err).show(300);
@@ -92,7 +92,7 @@ $(function () {
 
             if (dataRozpoPodr == "") {
                 blad = true;
-                throw "Podaj datÄ™!";
+                throw "Podaj datę!";
             }
         } catch (err) {
             $("#dataRozpoPodrError").html(err).show(300);
@@ -116,7 +116,7 @@ $(function () {
 
             if (dataZakonPodr == "") {
                 blad = true;
-                throw "Podaj datÄ™!";
+                throw "Podaj datę!";
             }
         } catch (err) {
             $("#dataZakonPodrError").html(err).show(300);
