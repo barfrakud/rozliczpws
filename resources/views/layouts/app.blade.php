@@ -2,7 +2,6 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8DK59LG2E0"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -10,8 +9,8 @@
         function gtag() {
             dataLayer.push(arguments);
         }
-        gtag('js', new Date());
 
+        gtag('js', new Date());
         gtag('config', 'G-8DK59LG2E0');
     </script>
 
@@ -21,17 +20,9 @@
 
     <title>rozliczPWS.pl</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
-
-    <!-- Fonts -->
-
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    {{-- Recaptcha --}}
     {!! htmlScriptTagJsApi([
         'action' => 'homepage',
         'callback_then' => 'callbackThen',
@@ -40,60 +31,51 @@
 </head>
 
 <body>
-
     <div class="container">
         <nav class="navbar navbar-expand-md navbar-dark rounded">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ url('/') }}">rozliczPWS.pl</a>
+                <a class="navbar-brand" href="{{ route('home') }}">rozliczPWS.pl</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    {{-- <div class="d-flex"> --}}
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item ">
-                            <a class="nav-link {{ request()->is('krajowa') ? 'active' : '' }}" aria-current="page" href="{{ url('krajowa') }}">Podróż krajowa</a>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('krajowa') ? 'active' : '' }}" href="{{ route('krajowa') }}">Podroz krajowa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->is('zagraniczna') ? 'active' : '' }}" href="{{ url('zagraniczna') }}">Podróż zagraniczna</a>
+                            <a class="nav-link {{ request()->routeIs('zagraniczna') ? 'active' : '' }}" href="{{ route('zagraniczna') }}">Podroz zagraniczna</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->is('podstawa') ? 'active' : '' }}" href="{{ url('podstawa') }}">Podstawa prawna</a>
+                            <a class="nav-link {{ request()->routeIs('podstawa') ? 'active' : '' }}" href="{{ route('podstawa') }}">Podstawa prawna</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->is('kontakt') ? 'active' : '' }}" href="{{ url('kontakt') }}">Kontakt</a>
+                            <a class="nav-link {{ request()->routeIs('kontakt') ? 'active' : '' }}" href="{{ route('kontakt') }}">Kontakt</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->is('pomoc') ? 'active' : '' }}" href="{{ url('pomoc') }}">Pomoc</a>
+                            <a class="nav-link {{ request()->routeIs('pomoc') ? 'active' : '' }}" href="{{ route('pomoc') }}">Pomoc</a>
                         </li>
                     </ul>
-                    {{-- </div> --}}
                 </div>
             </div>
         </nav>
     </div>
 
-
     <div>
         @yield('content')
     </div>
-
 
     <div class="container">
         <nav class="navbar navbar-expand-md navbar-dark rounded">
             <div class="container-fluid">
                 <a class="navbar-brand labelNumerWersji" href="#" id="idFooterText">rozliczPWS.pl</a>
                 <a target="_blank" title="follow me on facebook" href="https://www.facebook.com/rozliczpws">
-                    <img alt="follow me on facebook" src="images/flogo-HexRBG-Wht-58.png" height="30" width="30" />
+                    <img alt="follow me on facebook" src="{{ asset('images/flogo-HexRBG-Wht-58.png') }}" height="30" width="30" />
                 </a>
             </div>
         </nav>
     </div>
-
 </body>
-
-<script>
-    console.log("Start");
-</script>
 
 </html>

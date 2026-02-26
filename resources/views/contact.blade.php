@@ -6,15 +6,14 @@
             <div class="row">
                 <h3>Formularz kontaktowy</h3>
                 <p class="mt-3">
-                    Jeśli znalazłeś błąd lub masz pomysł co można lepiej zrobić, to proszę napisz do mnie
-                    poprzez formularz poniżej lub przez <a href="https://github.com/barfrakud/rozliczpws">GitHub</a>.
+                    Jesli znalazles blad lub masz pomysl co mozna poprawic, napisz przez formularz ponizej
+                    albo przez <a href="https://github.com/barfrakud/rozliczpws">GitHub</a>.
                 </p>
                 <p>
-                    Podając email będę mógł z Tobą nawiązać kontakt, aby ewentualnie wyjaśnić problem i w przyszłości
-                    powiadomić Cię, że rozliczpws.pl działa już poprawnie!
+                    Podanie adresu email pozwala odpowiedziec i doprecyzowac zgloszenie.
                 </p>
-
             </div>
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="card card-user">
@@ -28,14 +27,15 @@
                                 </div>
                             @endif
 
-                            <form method="post" action="kontakt-uj">
-                                {{ csrf_field() }}
+                            <form method="post" action="{{ route('contact.store') }}">
+                                @csrf
                                 <x-honey />
+
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label> Imię </label>
-                                            <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Imię" name="name">
+                                            <label>Imie</label>
+                                            <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Imie" name="name" value="{{ old('name') }}">
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -43,10 +43,11 @@
                                             @enderror
                                         </div>
                                     </div>
+
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label> Email </label>
-                                            <input type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email">
+                                            <label>Email</label>
+                                            <input type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}">
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -54,10 +55,11 @@
                                             @enderror
                                         </div>
                                     </div>
+
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label> Wiadomość </label>
-                                            <textarea class="form-control textarea @error('message') is-invalid @enderror" placeholder="Wiadomość" name="message"></textarea>
+                                            <label>Wiadomosc</label>
+                                            <textarea class="form-control textarea @error('message') is-invalid @enderror" placeholder="Wiadomosc" name="message">{{ old('message') }}</textarea>
                                             @error('message')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -66,10 +68,10 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row">
                                     <div class="update ml-auto mr-auto">
-                                        <button type="submit" class="btn btn-block przycisk4">Wyślij
-                                            wiadomość</button>
+                                        <button type="submit" class="btn btn-block przycisk4">Wyslij wiadomosc</button>
                                     </div>
                                 </div>
                             </form>

@@ -2,42 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreContactRequest;
+use App\Mail\ContactMessageMail;
 use App\Models\Contact;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
-    public function store(Request $request)
+    public function store(StoreContactRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email',
-            'message' => 'required'
-        ]);
+        $validated = $request->validated();
 
-        $contact = new Contact;
+        Contact::create($validated);
 
-        $contact->name = $request->name;
-        $contact->email = $request->email;
-        $contact->message = $request->message;
+        $destinationEmail = config('mail.destination_address', config('mail.from.address'));
 
-        $contact->save();
-
-        \Mail::send(
-            'contact_email',
-            array(
-                'name' => $request->get('name'),
-                'email' => $request->get('email'),
-                'user_message' => $request->get('message'),
-            ),
-            function ($message) use ($request) {
-                $message->from($request->email);
-                $destinationEmail = env('MAIL_DESTINATION');
-                $message->to($destinationEmail);
-            }
+        Mail::to($destinationEmail)->send(
+            new ContactMessageMail(
+                $validated['name'],
+                $validated['email'],
+                $validated['message']
+            )
         );
 
-        return back()->with('success', 'Dziękuję za zgłosznie!');
+        return back()->with('success', 'Dziekujemy za wiadomosc.');
     }
 }

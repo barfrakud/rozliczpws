@@ -3,15 +3,14 @@
 @section('content')
     <div class="container">
 
-        <form action="" method="post">
-            @csrf
+        <div id="national-routes" data-summary-url="{{ route('krajowa.calculate-trip') }}" data-settlement-url="{{ route('krajowa.calculate-bill') }}"></div>
 
             <div class="container mt-5 poczatkowyDiv" id="poczatekPrzejazdy">
 
                 <div class="row">
                     <div><a href="#top" id="bottom"></a></div>
                     <div class="col-sm-3">
-                        <h2 id="labelPodrozKrajowa">Podróż krajowa</h2>
+                        <h2 id="labelPodrozKrajowa">PodrÃ³Å¼ krajowa</h2>
                     </div>
                     <div class="col-sm-3"></div>
                     <div class="col-sm-3"></div>
@@ -30,7 +29,7 @@
                 <div class="row d-print-none">
                     <div class="col-sm-3">
                         <div id="wyjazd">
-                            <label for="miejsceRozpoPodr">Miejscowość wyjazdu</label><br />
+                            <label for="miejsceRozpoPodr">MiejscowoÅ›Ä‡ wyjazdu</label><br />
                             <input id="miejsceRozpoPodr" type="text" class="form-control" list="miejscowosci">
                             <p class="paraForError" id="miejsceRozpoPodrError"></p>
                             <label for="dataRozpoPodr">Data</label><br />
@@ -42,26 +41,26 @@
 
                             <datalist id="miejscowosci">
                                 <option value="Warszawa Centralna">
-                                <option value="Kraków Główny">
+                                <option value="KrakÃ³w GÅ‚Ã³wny">
 
-                                <option value="Białystok">
+                                <option value="BiaÅ‚ystok">
                                 <option value="Bydgoszcz">
-                                <option value="Gdańsk">
+                                <option value="GdaÅ„sk">
                                 <option value="Katowice">
                                 <option value="Kielce">
-                                <option value="Kraków">
+                                <option value="KrakÃ³w">
                                 <option value="Lublin">
-                                <option value="Łódź">
+                                <option value="ÅÃ³dÅº">
                                 <option value="Olsztyn">
                                 <option value="Opole">
-                                <option value="Poznań">
-                                <option value="Rzeszów">
+                                <option value="PoznaÅ„">
+                                <option value="RzeszÃ³w">
                                 <option value="Szczecin">
                                 <option value="Warszawa">
-                                <option value="Wrocław">
-                                <option value="Zielona Góra">
+                                <option value="WrocÅ‚aw">
+                                <option value="Zielona GÃ³ra">
 
-                                <option value="Dęblin">
+                                <option value="DÄ™blin">
                             </datalist>
 
                         </div>
@@ -69,7 +68,7 @@
 
                     <div class="col-sm-3">
                         <div id="przyjazd">
-                            <label for="miejsceZakonPodr">Miejscowość przyjazdu</label><br />
+                            <label for="miejsceZakonPodr">MiejscowoÅ›Ä‡ przyjazdu</label><br />
                             <input id="miejsceZakonPodr" type="text" class="form-control" list="miejscowosci">
                             <p class="paraForError" id="miejsceZakonPodrError"></p>
                             <label for="dataZakonPodr">Data</label><br />
@@ -83,15 +82,15 @@
 
                     <div class="col-sm-3">
                         <div id="rodzajLok">
-                            <label for="rodzajLokom">Środek lokomocji</label><br />
+                            <label for="rodzajLokom">Åšrodek lokomocji</label><br />
                             <select id="rodzajLokom" class="form-control">
                                 <option style="display:none"></option>
                                 <option>PKP TLK</option>
                                 <option>PKP EIC</option>
                                 <option>PKP EIP</option>
                                 <option>PKS</option>
-                                <option value="Samochód prywatny">Samochód prywatny</option>
-                                <option value="Samochód służbowy">Samochód służbowy</option>
+                                <option value="SamochÃ³d prywatny">SamochÃ³d prywatny</option>
+                                <option value="SamochÃ³d sÅ‚uÅ¼bowy">SamochÃ³d sÅ‚uÅ¼bowy</option>
                                 <option>Inne</option>
                             </select>
                             <p class="paraForError" id="rodzajLokomError"></p>
@@ -101,21 +100,21 @@
                             <label for="stawkaZaKm">Stawka za kilometr</label><br />
                             <select id="stawkaZaKm" class="form-control">
                                 <option style="display:none"></option>
-                                <option value="0.52">Sam. osobowy - 0,52 zł/km</option>
-                                <option value="0.83">Sam. osobowy - 0,83 zł/km</option>
+                                <option value="0.52">Sam. osobowy - 0,52 zÅ‚/km</option>
+                                <option value="0.83">Sam. osobowy - 0,83 zÅ‚/km</option>
                                 <option value="dowolnaStawkaZaKm">Inna stawka</option>
                             </select>
                         </div>
 
                         <div id="dowolnaStawkaDIV">
-                            <label for="dowolnaStawka">Podaj stawkę w zł za 1 km</label><br />
+                            <label for="dowolnaStawka">Podaj stawkÄ™ w zÅ‚ za 1 km</label><br />
                             <input id="dowolnaStawka" type="text" class="form-control">
                             <p class="paraForError" id="kosztDowolnaStawkaZaKmError"></p>
                         </div>
 
 
                         <div id="iloscKmDIV">
-                            <label for="iloscKM">Ilość kilometrów</label><br />
+                            <label for="iloscKM">IloÅ›Ä‡ kilometrÃ³w</label><br />
                             <input id="iloscKM" type="number" class="form-control">
                         </div>
 
@@ -135,12 +134,12 @@
                         </div>
                         <div id="przyciskPodrozPowrotna">
                             <label>&nbsp</label><br />
-                            <button type="button" class="btn btn-block przycisk4 d-print-none" id="buttonPodrozPowrotna">Podróż powrotna</button>
+                            <button type="button" class="btn btn-block przycisk4 d-print-none" id="buttonPodrozPowrotna">PodrÃ³Å¼ powrotna</button>
                         </div>
                     </div>
                 </div>
 
-                <h4 class="mb-3 tabPod">Przejazdy - szczegóły</h4>
+                <h4 class="mb-3 tabPod">Przejazdy - szczegÃ³Å‚y</h4>
                 <div class="row tabPod">
                     <div class="col-sm-12 mb-5">
                         <div id="divTabela" class="table-responsive">
@@ -153,9 +152,9 @@
                                         <th>Przyjazd</th>
                                         <th>Data</th>
                                         <th>Godzina</th>
-                                        <th>Środek lokomocji</th>
+                                        <th>Åšrodek lokomocji</th>
                                         <th>Koszt</th>
-                                        <th>Usuń</th>
+                                        <th>UsuÅ„</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -171,7 +170,7 @@
                     <div class="col-sm-3"></div>
                     <div class="col-sm-3">
                         <div id="buttonUsunId">
-                            <button type="button" class="btn btn-block przycisk4 d-print-none" id="buttonUsun">Usuń</button>
+                            <button type="button" class="btn btn-block przycisk4 d-print-none" id="buttonUsun">UsuÅ„</button>
                         </div>
                     </div>
                 </div>
@@ -179,14 +178,14 @@
 
                 <div class="row mt-5">
                     <div id="obliczenia" class="col-sm-6 mb-5">
-                        <h4>Podsumowanie podróży</h4>
+                        <h4>Podsumowanie podrÃ³Å¼y</h4>
                         <table id="idTabelaPodroz">
                             <tr>
-                                <td>Rozpoczęcie podróży</td>
+                                <td>RozpoczÄ™cie podrÃ³Å¼y</td>
                                 <td class="tabelaTdPodroz" id="rozpoczeciePodrozy"></td>
                             </tr>
                             <tr>
-                                <td>Zakończenie podróży:</td>
+                                <td>ZakoÅ„czenie podrÃ³Å¼y:</td>
                                 <td class="tabelaTdPodroz" id="zakonczeniePodrozy"></td>
                             </tr>
                             <tr>
@@ -194,12 +193,12 @@
                                 <td class="tabelaTdPodroz" id="czasTrwaniaPodrozy"></td>
                             </tr>
                             <tr>
-                                <td>Koszt podróży:</td>
+                                <td>Koszt podrÃ³Å¼y:</td>
                                 <td class="tabelaTdPodroz" id="kosztPodrozy"></td>
                             </tr>
-                            <!-- Rząd tabeli ukryty, aby można było wykonać walidację i tutaj zapisywana jest ilość dób podróży -->
+                            <!-- RzÄ…d tabeli ukryty, aby moÅ¼na byÅ‚o wykonaÄ‡ walidacjÄ™ i tutaj zapisywana jest iloÅ›Ä‡ dÃ³b podrÃ³Å¼y -->
                             <tr hidden>
-                                <td>Doby podróży:</td>
+                                <td>Doby podrÃ³Å¼y:</td>
                                 <td class="tabelaTdPodroz" id="dobyPodrozy"></td>
                             </tr>
                         </table>
@@ -209,7 +208,7 @@
                     <div class="col-sm-3 mb-5">
                         <div id="buttonObliczId">
                             <button type="button" id="buttonOblicz" class="btn btn-block przycisk4 d-print-none">Oblicz
-                                Podróże</button>
+                                PodrÃ³Å¼e</button>
                         </div>
                     </div>
                 </div>
@@ -221,17 +220,17 @@
                             <h4>Komunikacja miejska</h4>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="komunikacjaMiejskaRadio1" name="komunikacjaMiejska" checked>
-                                <label class="form-check-label" for="komunikacjaMiejskaRadio1"> Nie korzystałem</label>
+                                <label class="form-check-label" for="komunikacjaMiejskaRadio1"> Nie korzystaÅ‚em</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="komunikacjaMiejskaRadio2" name="komunikacjaMiejska">
-                                <label class="form-check-label" for="komunikacjaMiejskaRadio2"> Korzystałem</label>
+                                <label class="form-check-label" for="komunikacjaMiejskaRadio2"> KorzystaÅ‚em</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="komunikacjaMiejskaRadio3" name="komunikacjaMiejska">
-                                <label class="form-check-label" for="komunikacjaMiejskaRadio3"> Korzystałem przez
-                                    określoną
-                                    ilość dni:</label>
+                                <label class="form-check-label" for="komunikacjaMiejskaRadio3"> KorzystaÅ‚em przez
+                                    okreÅ›lonÄ…
+                                    iloÅ›Ä‡ dni:</label>
                             </div>
                             <div>
                                 <input id="komunikacjaMiejskaIloscDni" type="text" value="" class="form-control" name="komunikacjaMiejska" disabled>
@@ -241,10 +240,10 @@
 
                         <div class="col-sm-3 mb-5">
                             <h4>Zakwaterowanie</h4>
-                            <p>Korzystałem z:</p>
+                            <p>KorzystaÅ‚em z:</p>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="zakwaterowanieButton1" name="zakwaterowanieButton" checked>
-                                <label class="form-check-label" for="zakwaterowanieButton1"> ryczałtu</label>
+                                <label class="form-check-label" for="zakwaterowanieButton1"> ryczaÅ‚tu</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="zakwaterowanieButton2" name="zakwaterowanieButton">
@@ -259,10 +258,10 @@
                         </div>
 
                         <div class="col-sm-3 mb-5">
-                            <h4>Wyżywienie</h4>
-                            <p>Zapewniono bezpłatnie posiłki w ilościach:</p>
+                            <h4>WyÅ¼ywienie</h4>
+                            <p>Zapewniono bezpÅ‚atnie posiÅ‚ki w iloÅ›ciach:</p>
                             <div id="idSniadanie">
-                                <label for="sniadanie">Śniadanie:</label>
+                                <label for="sniadanie">Åšniadanie:</label>
                                 <input id="sniadanie" type="text" value="0" class="form-control" name="sniadanie">
                                 <p class="paraForError" id="sniadanieError"></p>
                             </div>
@@ -295,10 +294,10 @@
 
                 <div class="row">
                     <div class="col-sm-6">
-                        <h2 class="mb-3">Rachunek kosztów podróży:</h2>
+                        <h2 class="mb-3">Rachunek kosztÃ³w podrÃ³Å¼y:</h2>
                         <table id="idTabelaRachunek">
                             <tr>
-                                <td>Ryczałt za dojazdy:</td>
+                                <td>RyczaÅ‚t za dojazdy:</td>
                                 <td class="tabelaTdRachunek" id="idRyczalZaDojazdyWynik"></td>
                             </tr>
                             <tr>
@@ -310,32 +309,32 @@
                                 <td class="tabelaTdRachunek" id="idDiety"></td>
                             </tr>
                             <tr>
-                                <td>Noclegi wg rachunków:</td>
+                                <td>Noclegi wg rachunkÃ³w:</td>
                                 <td class="tabelaTdRachunek" id="idNoclegiRachunki"></td>
                             </tr>
                             <tr>
-                                <td>Noclegi ryczałty:</td>
+                                <td>Noclegi ryczaÅ‚ty:</td>
                                 <td class="tabelaTdRachunek" id="idNoclegiRyczalty"></td>
                             </tr>
                             <tr>
-                                <td>Inne wydatki wg załączników:</td>
+                                <td>Inne wydatki wg zaÅ‚Ä…cznikÃ³w:</td>
                                 <td class="tabelaTdRachunek" id="idInneWydatki"></td>
                             </tr>
                             <tr>
-                                <td>Ogółem:</td>
+                                <td>OgÃ³Å‚em:</td>
                                 <td class="tabelaTdRachunek" id="idOgolem"></td>
                             </tr>
                         </table>
                     </div>
                     <div class="col-sm-3"></div>
                     <div class="col-sm-3">
-                        <div id="buttonObliczPodsumowanie">
+                        <div id="buttonObliczPodsumowanieWrapper">
                             <button type="button" id="buttonObliczPodsumowanie" class="btn btn-block przycisk4 d-print-none">Oblicz Rachunek</button>
                         </div>
                     </div>
                 </div>
             </div>
-
-        </form>
     </div>
 @endsection
+
+

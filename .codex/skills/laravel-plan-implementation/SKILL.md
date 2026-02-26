@@ -1,3 +1,8 @@
+---
+name: laravel-plan-implementation
+description: Implement phases A, B, C, and E from review-report.md for a Laravel project in a safe, incremental way. Use when tasks touch Laravel app code, routes, validation, tests, controller/service refactors, mail safety, frontend cleanup, or README/environment documentation updates.
+---
+
 # Skill: laravel-plan-implementation
 
 ## Goal
@@ -35,4 +40,3 @@ Implement phases A, B, C, and E from `review-report.md` in a safe and incrementa
 - Updated tests
 - Updated README and environment examples
 - Short change summary
-

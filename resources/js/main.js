@@ -1,6 +1,6 @@
 $(function () {
 
-    console.log('Start podróż krajowa main');
+    console.log('Start podrÃ³Å¼ krajowa main');
 
 
     var czasPodrozyWynik = [];
@@ -14,10 +14,7 @@ $(function () {
     var kosztZakwaterowaniaHotel = 0;
     var ogolem = 0;
 
-    //Funkcja ustawiające numer wersji oprogramowania na każdej stronie i podstronie.
-    document.getElementById("idFooterText").innerHTML = "rozliczPWS.pl v2.1.2 &#169 barfrakud";
 
-    //Funkcja dodawanie danych do tabeli
     $("#buttonDodaj").click(function () {
 
         var miejsceRozpoPodr = $("#miejsceRozpoPodr").val();
@@ -30,54 +27,44 @@ $(function () {
         var kosztPrzejazdu = $("#kosztPrzejazdu").val();
 
 
-        //Walidacja wprowadzonych danych
-        var blad = false; //zmienna kontrolująca stan walidacji
+        var blad = false; 
 
-        //Walidacja - Miejsce rozpoczęcia
         try {
 
             $("#miejsceRozpoPodrError").html("").hide(100);
 
             if (miejsceRozpoPodr == "") {
-                // Wyłączenie walidacji miejsca - brak podania miejscowości nie będzie blokował dodania danych do tabelki
-                //blad = true;
-                throw "Podaj miejscowość wyjazdu!";
+                throw "Podaj miejscowoÅ›Ä‡ wyjazdu!";
             }
 
             if (miejsceRozpoPodr.length > 30) {
                 blad = true;
-                throw "Za dużo liter!";
+                throw "Za duÅ¼o liter!";
             }
 
-            //Sprawdzenie poprzez wyrażenie reguralne
-            var regExpCheckPhrase = /[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]+$/;
+            var regExpCheckPhrase = /[A-Za-zÅ¼ÅºÄ‡Å„Ã³Å‚Ä™Ä…Å›Å»Å¹Ä†Ä„ÅšÄ˜ÅÃ“Åƒ]+$/;
             if (!miejsceRozpoPodr.match(regExpCheckPhrase)) {
                 blad = true;
                 throw "Czy to na pewno jest poprawna nazwa?";
             }
         } catch (err) {
-            //Wyświetlenie komunikatów błędów
             $("#miejsceRozpoPodrError").html(err).show(300);
         }
 
-        //Walidacja - Miejsce zakończenia
         try {
 
             $("#miejsceZakonPodrError").html("").hide(100);
 
             if (miejsceZakonPodr == "") {
-                // Wyłączenie walidacji miejsca - brak podania miejscowości nie będzie blokował dodania danych do tabelki
-                //blad = true;
-                throw "Podaj miejscowość przyjazdu!";
+                throw "Podaj miejscowoÅ›Ä‡ przyjazdu!";
             }
 
             if (miejsceZakonPodr.length > 30) {
                 blad = true;
-                throw "Za dużo liter człowieku!";
+                throw "Za duÅ¼o liter czÅ‚owieku!";
             }
 
-            //Sprawdzenie poprzez wyrażenie reguralne
-            var regExpCheckPhrase = /[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]+$/;
+            var regExpCheckPhrase = /[A-Za-zÅ¼ÅºÄ‡Å„Ã³Å‚Ä™Ä…Å›Å»Å¹Ä†Ä„ÅšÄ˜ÅÃ“Åƒ]+$/;
             if (!miejsceZakonPodr.match(regExpCheckPhrase)) {
                 blad = true;
                 throw "Czy to na pewno jest poprawna nazwa?";
@@ -87,33 +74,30 @@ $(function () {
             $("#miejsceZakonPodrError").html(err).show(300);
         }
 
-        //Walidacja - Rodzaj lokomocji
         try {
 
             $("#rodzajLokomError").html("").hide(100);
 
             if (rodzajLokom == "") {
                 blad = true;
-                throw "Podaj środek lokomocji!";
+                throw "Podaj Å›rodek lokomocji!";
             }
         } catch (err) {
             $("#rodzajLokomError").html(err).show(300);
         }
 
-        //Walidacja - Data rozpoczęcia
         try {
 
             $("#dataRozpoPodrError").html("").hide(100);
 
             if (dataRozpoPodr == "") {
                 blad = true;
-                throw "Podaj datę!";
+                throw "Podaj datÄ™!";
             }
         } catch (err) {
             $("#dataRozpoPodrError").html(err).show(300);
         }
 
-        //Walidacja - Czas rozpoczęcia
         try {
 
             $("#czasRozpoPodrError").html("").hide(100);
@@ -126,20 +110,18 @@ $(function () {
             $("#czasRozpoPodrError").html(err).show(300);
         }
 
-        //Walidacja - Data zakończenia
         try {
 
             $("#dataZakonPodrError").html("").hide(100);
 
             if (dataZakonPodr == "") {
                 blad = true;
-                throw "Podaj datę!";
+                throw "Podaj datÄ™!";
             }
         } catch (err) {
             $("#dataZakonPodrError").html(err).show(300);
         }
 
-        //Walidacja - Czas zakończenia
         try {
 
             $("#czasZakonPodrError").html("").hide(100);
@@ -152,7 +134,6 @@ $(function () {
             $("#czasZakonPodrError").html(err).show(300);
         }
 
-        //Walidacja - Koszt podróży
         try {
 
             $("#kosztPrzejazduError").html("").hide(100);
@@ -162,7 +143,6 @@ $(function () {
                 throw "Podaj koszt!";
             }
 
-            //Sprawdzenie poprzez wyrażenie reguralne - to jest lepszy algorytm przy czym input musi być typu "text"
             var regex = /^\d{0,4}(\,\d{1,2})?$/;
             if (!regex.test(kosztPrzejazdu)) {
                 blad = true;
@@ -173,19 +153,26 @@ $(function () {
         }
 
         if (blad !== true) {
-            //Pojawienie się tabeli
             $(".tabPod").show(300);
             $(".tabPod").css('display', 'flex');
             $("#buttonUsunIdRow").show(300);
             $("#buttonUsunIdRow").css('display', 'flex');
-            var markup = "<tr><td>" + miejsceRozpoPodr + "</td><td>" + dataRozpoPodr + "</td><td>" + czasRozpoPodr + "</td><td>" + miejsceZakonPodr + "</td><td>" + dataZakonPodr + "</td><td>" + czasZakonPodr + "</td><td>" + rodzajLokom + "</td><td>" + kosztPrzejazdu + "</td><td>" + "<input type='checkbox' name='record'</ td></ tr>";
-            $("#tabelaPodroz tbody").append(markup);
+            var row = $("<tr>");
+            row.append($("<td>").text(miejsceRozpoPodr));
+            row.append($("<td>").text(dataRozpoPodr));
+            row.append($("<td>").text(czasRozpoPodr));
+            row.append($("<td>").text(miejsceZakonPodr));
+            row.append($("<td>").text(dataZakonPodr));
+            row.append($("<td>").text(czasZakonPodr));
+            row.append($("<td>").text(rodzajLokom));
+            row.append($("<td>").text(kosztPrzejazdu));
+            row.append($("<td>").append($("<input>", { type: "checkbox", name: "record" })));
+            $("#tabelaPodroz tbody").append(row);
         }
 
 
     });
 
-    //Funckja usuwająca zaznaczony rząd
     $("#buttonUsun").click(function () {
         $("table tbody").find('input[name="record"]').each(function () {
             if ($(this).is(":checked")) {
@@ -193,9 +180,7 @@ $(function () {
             }
         });
 
-        //Usuwanie wyników tabeli po usunięcia wiersza z tabeli
         kosztPodrozy = 0;
-        //$("#iloscRzedow").html("");
         $("#rozpoczeciePodrozy").html("");
         $("#zakonczeniePodrozy").html("");
         $("#czasTrwaniaPodrozy").html("");
@@ -211,3 +196,5 @@ $(function () {
     });
 
 });
+
+

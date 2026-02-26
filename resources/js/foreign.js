@@ -2,30 +2,24 @@ $(function () {
 
     console.log("Zaczynamy");
 
-    //PODRÓŻ ZAGRANICZNA
 
     let currency;
     let perDiemRate = 0;
     let perNightRate;
     let tripTotalTime;
-    let tripAllowance = 0; //dieta
+    let tripAllowance = 0; 
     let oldTripAllowance = 0;
-    let deduction = 0; //odliczenia za posiłki
+    let deduction = 0; 
     let deductionBreakfast = 0;
     let deductionLunch = 0;
     let deductionDinner = 0;
-    let tripAllowanceMinusDeduction = 0; //dieta minus odliczenia
-    let tripType = "1"; // typ podróży zagranicznej
+    let tripAllowanceMinusDeduction = 0; 
+    let tripType = "1"; 
 
-    // 2/3. FUNCKCJE
 
-    //Funkcja ustawiające numer wersji oprogramowania na każdej stronie i podstronie.
-    document.getElementById("idFooterText").innerHTML = "rozliczPWS.pl v2.1.2 &#169 barfrakud";
 
-    // Wybór miejsca podróży z przypisaniem poszczególnych wartości
     function selectDestination() {
 
-        // Currency = Waluta
         currency = $(this).find(":selected").data("value").waluta;
         $("#labelWaluta").val(currency);
 
@@ -35,7 +29,6 @@ $(function () {
 
 
 
-        // Trip Allowance = Dieta
         oldTripAllowance = $(this).find(":selected").data("value").dieta;
         console.log(oldTripAllowance);
 
@@ -53,13 +46,11 @@ $(function () {
 
 
 
-        // Night Rate = Kwota za nocleg
         perNightRate = $(this).find(":selected").data("value").limit;
         $("#labelLimitNocleg").val(perNightRate + ',00');
 
     }
 
-    // Typ podróży
     function typeOfTrip() {
 
         tripType = this.value;
@@ -84,7 +75,6 @@ $(function () {
     }
 
 
-    // Obliczenie czasu podróży zagranicznej i wyświetlenie wyniku
     function getTripTime() {
 
         var dataRozpoPodrZ = $("#dataRozpoPodrZ").val();
@@ -92,7 +82,6 @@ $(function () {
         var dataZakoPodrZ = $("#dataZakoPodrZ").val();
         var czasZakoPodrZ = $("#czasZakoPodrZ").val();
 
-        //Czas podróży
         var start = dataRozpoPodrZ + czasRozpoPodrZ;
         var stop = dataZakoPodrZ + czasZakoPodrZ;
 
@@ -115,7 +104,6 @@ $(function () {
         return tripTotalTime;
     }
 
-    // Obliczenie diety zagranicznej
     function getTripAllowance() {
 
         var czasPodrozyDni = tripTotalTime[0];
@@ -126,9 +114,8 @@ $(function () {
         var iloscObiadowZ = parseInt($("#obiadZ").val());
         var iloscKolacjiZ = parseInt($("#kolacjaZ").val());
 
-        var dietaZagrStawka = parseFloat($("#labelKwotaDieta").val().replace(",", ".")); //stawka diety zagranicznej
+        var dietaZagrStawka = parseFloat($("#labelKwotaDieta").val().replace(",", ".")); 
 
-        // Dla ułatwienia
         var D = czasPodrozyDni;
         var G = czasPodrozyGodziny;
         var M = czasPodrozyMinuty;
@@ -157,7 +144,6 @@ $(function () {
 
         var dietaZagrNowa = $("#labelKwotaDieta").val().replace(",", ".");
 
-        // Odliczenia
         deductionBreakfast = iloscSniadanZ * 0.15 * dietaZagrNowa;
         deductionLunch = iloscObiadowZ * 0.3 * dietaZagrNowa;
         deductionDinner = iloscKolacjiZ * 0.3 * dietaZagrNowa;
@@ -169,12 +155,11 @@ $(function () {
         tripAllowanceMinusDeduction = (Math.round((A + B - deduction) * 100) / 100).toFixed(2);
 
         console.log(`Diety: ${tripAllowance}, Odliczenia: ${deduction}, Diety-Odliczenia: ${tripAllowanceMinusDeduction}`);
-        console.log(`Odliczenia => Śniadanie: ${deductionBreakfast.toFixed(2)}, Obiad: ${deductionLunch.toFixed(2)}, Kolacja: ${deductionDinner.toFixed(2)}`);
+        console.log(`Odliczenia => Åšniadanie: ${deductionBreakfast.toFixed(2)}, Obiad: ${deductionLunch.toFixed(2)}, Kolacja: ${deductionDinner.toFixed(2)}`);
 
         return tripAllowance;
     }
 
-    // Obliczenie kosztów zakwaterowania w hotelu
     function obliczKosztZakwaterowaniaHotelZ() {
 
         var button2 = document.getElementById("zakwaterowanieButton2Z").checked;
@@ -188,10 +173,8 @@ $(function () {
         }
     }
 
-    // Obliczenie należności za zakwaterowanie wypłacanych ryczałtem
     function obliczKosztZakwaterowaniaRyczaltZ() {
 
-        //Wartość stawki pobiera się z okna, z którego się wyświetla
         var limitZagrStawka = $("#labelLimitNocleg").val().replace(",", ".");
 
         var czasPodrozyDni = tripTotalTime[0];
@@ -218,7 +201,6 @@ $(function () {
         }
     }
 
-    // Obliczenie należności za dojazdy komunikacją miejską wypłacanych ryczałtem
     function obliczRyczaltZaDojazdyZ() {
         var ryczaltStawka = 0.1 * $("#labelKwotaDieta").val().replace(",", ".");;
 
@@ -249,7 +231,6 @@ $(function () {
         return wynik;
     }
 
-    // Obliczenie należności za dojazd z/do lotniska w miejscowości docelowej
     function obliczDoZLotniska() {
         var wynik = $("#labelKwotaDieta").val().replace(",", ".");;
         var dojazdLotnisko = $("#dojazdLotnisko").is(':checked');
@@ -264,13 +245,11 @@ $(function () {
         }
     }
 
-    // Obliczenie należności za poniesione Inne Wydatki
     function obliczInneWydatkiZ() {
         inneWydatki = $("#wydatkiZ").val();
         return parseFloat(inneWydatki).toFixed(2);
     }
 
-    // Wyświetlenie kosztów
     function showCosts() {
         $("#labelDietaZ").html("<b>" + "<em>" + dietaZagranicznaWynik.replace(".", ",") + " " + currency + "</em>" + "</b>");
         $("#labelZOdliczenia").html("<b>" + "<em>" + deduction.replace(".", ",") + " " + currency + "</em>" + "</b>");
@@ -280,7 +259,6 @@ $(function () {
         $("#labelInneWydatkiPodsumZ").html("<b>" + "<em>" + sumaInne.toFixed(2).replace(".", ",") + " " + currency + "</em>" + "</b>");
     }
 
-    // Rozliczanie pobranej zaliczki
     function rozliczZaliczke() {
         var zaliczka = $("#zaliczka").val().replace(",", ".");
         wydatki = parseFloat(kosztZakwaterowaniaHotelZ) + parseFloat(kosztZakwatarewaniaRyczaltZ) + parseFloat(obliczRyczaltZaDojazdyZ()) + parseFloat(obliczDoZLotniska()) + parseFloat(obliczInneWydatkiZ()) + parseFloat(tripAllowanceMinusDeduction);
@@ -291,38 +269,28 @@ $(function () {
 
 
 
-    // 3/3. KONTROLER
 
-    // Pojawienie się pomocy
     $("#podrZagrInst").click(function () {
-        //Pojawienie się instrukcji
         $("#podrZagrInstrukcja").toggle(300);
         $("#podrKrajInstrukcja").hide(300);
     });
 
-    // Wybór miejsca podróży
     $("#krajPodrozy").on('change', selectDestination);
 
-    // Wybór typu podróży
-    // $(".trip-type").change(typeOfTrip);
     $(".trip-type").on("change", typeOfTrip);
 
 
-    // Obliczenie czasu podróży
     $('#buttonObliczZ').click(getTripTime);
 
-    // Kasowanie wartości "Koszt zakwaterowania" po naciśnięciu / przełączeniu radio buttona z "zakwaterowanie hotelu" na "ryczałt"
     $("#zakwaterowanieButton1Z").change(function () {
         $("#kosztHotelZ").val("0");
         $("#kosztHotelZ").attr("disabled", true);
     });
 
-    // Przełączenie buttona i odblokowanie input Koszt zakwaterowania
     $("#zakwaterowanieButton2Z").change(function () {
         $("#kosztHotelZ").attr("disabled", false);
     });
 
-    // Obliczenie kosztów podróży i wyświetlenie wyniku
     $('#buttonObliczKosztyIdZ').click(function () {
         obliczKosztZakwaterowaniaHotelZ();
         dietaZagranicznaWynik = 0;
@@ -330,17 +298,16 @@ $(function () {
         showCosts();
     });
 
-    // Obliczenie rachunku i wyświetlenie wyniku
     $('#buttonObliczRachunekIdZ').click(function () {
         rozliczZaliczke();
         $("#wydatkowano").html("<b>" + "<em>" + wydatki.toFixed(2).replace(".", ",") + " " + currency + "</em>" + "</b>");
 
         if (roznica < 0) {
-            $("#diffDisplay").text("Wypłacić żołnierzowi:");
+            $("#diffDisplay").text("WypÅ‚aciÄ‡ Å¼oÅ‚nierzowi:");
             roznica = -1 * roznica;
             $("#roznica").html("<b>" + "<em>" + roznica.toFixed(2).replace(".", ",") + " " + currency + "</em>" + "</b>");
         } else {
-            $("#diffDisplay").text("Zwrócić do kasy:");
+            $("#diffDisplay").text("ZwrÃ³ciÄ‡ do kasy:");
             $("#roznica").html("<b>" + "<em>" + roznica.toFixed(2).replace(".", ",") + " " + currency + "</em>" + "</b>");
         }
 
@@ -348,3 +315,5 @@ $(function () {
 
 
 });
+
+

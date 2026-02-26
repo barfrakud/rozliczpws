@@ -1,11 +1,22 @@
 import './bootstrap';
-import './main';
 
 window.moment = require('moment/moment');
 
-global.$ = global.jQuery = require('jquery');
+const $ = require('jquery');
+
+window.$ = window.jQuery = $;
+
 $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
+
+const footerText = document.getElementById('idFooterText');
+if (footerText) {
+    footerText.textContent = 'rozliczPWS.pl v2.1.2 © barfrakud';
+}
+
+require('./main');
+require('./national');
+require('./foreign');

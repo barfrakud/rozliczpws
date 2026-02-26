@@ -1,17 +1,10 @@
 <?php
 
-// Plik konfiguracyjny
-
 return [
-
-    // Dzienna stawka diety od 28.07.2022
-    // 'dietaKrajowaStawka' => 38,
-    // 'komunikajcaMiejskaRyczaltStawka' => 7.60,
-    // 'noclegRyczaltStawka' => 57,
-
-    // Dzienna stawka diety od 01.01.2023
+    // Domestic travel rates valid from 2023-01-01.
     'dietaKrajowaStawka' => 45,
+    'komunikacjaMiejskaRyczaltStawka' => 9,
+    // Legacy key kept for backward compatibility.
     'komunikajcaMiejskaRyczaltStawka' => 9,
     'noclegRyczaltStawka' => 67.50,
-
 ];

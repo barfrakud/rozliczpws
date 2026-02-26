@@ -531,3 +531,16 @@ em {
     color: white;
     background-color: #955F62;
 }
+
+#stawkaZaKmDIV,
+#iloscKmDIV,
+#dowolnaStawkaDIV {
+    display: none;
+}
+
+.paraForError {
+    color: red;
+    font-style: italic;
+    font-weight: bold;
+    display: none;
+}
