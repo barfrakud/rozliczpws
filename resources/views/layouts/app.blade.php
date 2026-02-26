@@ -22,6 +22,7 @@
 
     <script src="{{ mix('js/app.js') }}" defer></script>
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/custom.css') }}" rel="stylesheet">
 
     {!! htmlScriptTagJsApi([
         'action' => 'homepage',
@@ -42,10 +43,10 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('krajowa') ? 'active' : '' }}" href="{{ route('krajowa') }}">Podroz krajowa</a>
+                            <a class="nav-link {{ request()->routeIs('krajowa') ? 'active' : '' }}" href="{{ route('krajowa') }}">Podróż krajowa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('zagraniczna') ? 'active' : '' }}" href="{{ route('zagraniczna') }}">Podroz zagraniczna</a>
+                            <a class="nav-link {{ request()->routeIs('zagraniczna') ? 'active' : '' }}" href="{{ route('zagraniczna') }}">Podróż zagraniczna</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('podstawa') ? 'active' : '' }}" href="{{ route('podstawa') }}">Podstawa prawna</a>
