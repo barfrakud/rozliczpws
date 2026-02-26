@@ -25,6 +25,6 @@ class ContactController extends Controller
             )
         );
 
-        return back()->with('success', 'Dziekujemy za wiadomosc.');
+        return back()->with('success', 'Dziękujemy za wiadomość.');
     }
 }

@@ -12,6 +12,10 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
 
+        if (empty(config('app.key'))) {
+            config(['app.key' => str_repeat('a', 32)]);
+        }
+
         $this->withoutMiddleware(\Lukeraymonddowning\Honey\Http\Middleware\BlockSpammers::class);
     }
 }

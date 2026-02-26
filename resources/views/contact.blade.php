@@ -6,11 +6,11 @@
             <div class="row">
                 <h3>Formularz kontaktowy</h3>
                 <p class="mt-3">
-                    Jesli znalazles blad lub masz pomysl co mozna poprawic, napisz przez formularz ponizej
+                    Jeśli znalazłeś błąd lub masz pomysł, co można poprawić, napisz przez formularz poniżej
                     albo przez <a href="https://github.com/barfrakud/rozliczpws">GitHub</a>.
                 </p>
                 <p>
-                    Podanie adresu email pozwala odpowiedziec i doprecyzowac zgloszenie.
+                    Podanie adresu e-mail pozwala odpowiedzieć i doprecyzować zgłoszenie.
                 </p>
             </div>
 
@@ -34,8 +34,8 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Imie</label>
-                                            <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Imie" name="name" value="{{ old('name') }}">
+                                            <label>Imię</label>
+                                            <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Imię" name="name" value="{{ old('name') }}">
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -58,8 +58,8 @@
 
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Wiadomosc</label>
-                                            <textarea class="form-control textarea @error('message') is-invalid @enderror" placeholder="Wiadomosc" name="message">{{ old('message') }}</textarea>
+                                            <label>Wiadomość</label>
+                                            <textarea class="form-control textarea @error('message') is-invalid @enderror" placeholder="Wiadomość" name="message">{{ old('message') }}</textarea>
                                             @error('message')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -71,7 +71,7 @@
 
                                 <div class="row">
                                     <div class="update ml-auto mr-auto">
-                                        <button type="submit" class="btn btn-block przycisk4">Wyslij wiadomosc</button>
+                                        <button type="submit" class="btn btn-block przycisk4">Wyślij wiadomość</button>
                                     </div>
                                 </div>
                             </form>

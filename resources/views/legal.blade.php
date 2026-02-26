@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="container">
-        <div id="podstawaPrawnaDivId" class="container mt-5">
-            <div class="intro">
+        <div id="podstawaPrawnaDivId" class="mt-5 legal-page">
+            <div class="intro legal-card">
                 <h2>Podstawa prawna</h2>
                 <p>
                     Kalkulator delegacji służbowej <strong>rozliczPWS.pl</strong> ułatwia rozliczenie kosztów wyjazdu
@@ -46,7 +46,7 @@
                 </p>
             </div>
 
-            <div class="legal-national mt-5">
+            <div id="legal-national" class="legal-national legal-card mt-4">
 
                 <h3>PODRÓŻ KRAJOWA</h3>
                 <p>
@@ -187,7 +187,7 @@
                 </p> <br>
             </div>
 
-            <div class="legal-foreign">
+            <div id="legal-foreign" class="legal-foreign legal-card mt-4">
 
                 <h3>PODRÓŻ ZAGRANICZNA</h3>
                 <p>
