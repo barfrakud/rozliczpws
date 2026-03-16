@@ -1,0 +1,17 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="jumbotron shadow-lg p-3 mb-3 bg-white rounded justify-content-center">
+            <div class="flex-column text-center justify-content-center">
+                <h2>KALKULATOR DELEGACJI SŁUŻBOWEJ</h2>
+                <h3>{{ config('app.display_name') }}</h3>
+                <h2>Polecenie Wyjazdu Służbowego</h2>
+                <h2>Rachunek Kosztów Podróży</h2>
+
+                <a class="btn btn-primary" href="{{ route('krajowa') }}" role="button">Podróż krajowa</a>
+                <a class="btn btn-primary" href="{{ route('zagraniczna') }}" role="button">Podróż zagraniczna</a>
+            </div>
+        </div>
+    </div>
+@endsection

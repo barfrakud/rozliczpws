@@ -1,0 +1,7 @@
+interface:
+  display_name: "Documentation Workflow"
+  short_description: "Create and maintain private-first project documentation."
+  brand_color: "#2563EB"
+  default_prompt: "Use the repository documentation workflow and create the right documentation artifact in the correct location."
+policy:
+  allow_implicit_invocation: true
